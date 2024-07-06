@@ -1,9 +1,8 @@
--- YARHM Elite+,v1.15.0
--- YARHM, 1.15.00
+-- YARHM Elite+ v1.16.2		
 
 if not game:IsLoaded() then
 	game:GetService("StarterGui"):SetCore("SendNotification", {
-		Title = "Script Loading",
+		Title = "Script loading",
 		Text = "Please wait for the game to finish loading.",
 		Duration = 5
 	})
@@ -111,9 +110,9 @@ local Converted = {
 	["_CloseArea"] = Instance.new("TextButton");
 	["_Frame"] = Instance.new("Frame");
 	["_UICorner15"] = Instance.new("UICorner");
+	["_CloseOpen"] = Instance.new("LocalScript");
 	["_TextLabel7"] = Instance.new("TextLabel");
 	["_UICorner16"] = Instance.new("UICorner");
-	["_CloseOpen"] = Instance.new("LocalScript");
 	["_ClickAndHold"] = Instance.new("ModuleScript");
 	["_Spring"] = Instance.new("ModuleScript");
 	["_Toggle"] = Instance.new("Frame");
@@ -580,11 +579,11 @@ Converted["_UIGradient2"].Color = ColorSequence.new{
 Converted["_UIGradient2"].Rotation = 180
 Converted["_UIGradient2"].Parent = Converted["_UIStroke6"]
 
-Converted["_List"].AnchorPoint = Vector2.new(0.5, 0.5)
+Converted["_List"].AnchorPoint = Vector2.new(0, 0.5)
 Converted["_List"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_List"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 Converted["_List"].BorderSizePixel = 0
-Converted["_List"].Position = UDim2.new(0.15770267, 0, 0.607306004, 0)
+Converted["_List"].Position = UDim2.new(0, 0, 0.606999993, 0)
 Converted["_List"].Size = UDim2.new(0.315405339, 0, 0.785387993, 0)
 Converted["_List"].Name = "List"
 Converted["_List"].Parent = Converted["_Menu"]
@@ -686,7 +685,7 @@ Converted["_UICorner13"].Parent = Converted["_Close"]
 Converted["_UIStroke9"].Parent = Converted["_Close"]
 
 Converted["_HubCredits"].Font = Enum.Font.GothamBold
-Converted["_HubCredits"].Text = "Imperial | Brandon Jay"
+Converted["_HubCredits"].Text = "Imperial | Brandon Jay 🔥"
 Converted["_HubCredits"].TextColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_HubCredits"].TextScaled = true
 Converted["_HubCredits"].TextSize = 14
@@ -797,7 +796,7 @@ Converted["_Area1"].Name = "Area"
 Converted["_Area1"].Parent = Converted["_Area"]
 
 Converted["_TextLabel5"].Font = Enum.Font.GothamBold
-Converted["_TextLabel5"].Text = "PREMIUM"
+Converted["_TextLabel5"].Text = "Premium"
 Converted["_TextLabel5"].TextColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_TextLabel5"].TextSize = 14
 Converted["_TextLabel5"].AnchorPoint = Vector2.new(0.5, 0.5)
@@ -832,16 +831,13 @@ Converted["_UIGradient5"].Rotation = 68
 Converted["_UIGradient5"].Parent = Converted["_Menu"]
 
 Converted["_CloseArea"].Text = ""
-Converted["_CloseArea"].Modal = true
-Converted["_CloseArea"].Active = true
 Converted["_CloseArea"].AnchorPoint = Vector2.new(0.5, 0.5)
 Converted["_CloseArea"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_CloseArea"].BackgroundTransparency = 1
 Converted["_CloseArea"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 Converted["_CloseArea"].BorderSizePixel = 0
 Converted["_CloseArea"].Position = UDim2.new(0.5, 0, 0.00295135868, 0)
-Converted["_CloseArea"].Selectable = true
-Converted["_CloseArea"].Size = UDim2.new(0.226757362, 0, 0.143962413, 0)
+Converted["_CloseArea"].Size = UDim2.new(0.326999992, 0, 0.184, 0)
 Converted["_CloseArea"].Name = "CloseArea"
 Converted["_CloseArea"].Parent = Converted["_Menu"]
 
@@ -850,24 +846,25 @@ Converted["_Frame"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_Frame"].BackgroundTransparency = 0.6499999761581421
 Converted["_Frame"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 Converted["_Frame"].BorderSizePixel = 0
-Converted["_Frame"].Position = UDim2.new(0.5, 0, 0.800000012, 0)
-Converted["_Frame"].Size = UDim2.new(0.899999976, 0, 0.100000001, 0)
+Converted["_Frame"].Position = UDim2.new(0.5, 0, 0.699999988, 0)
+Converted["_Frame"].Size = UDim2.new(0.699999988, 0, 0.100000001, 0)
 Converted["_Frame"].Parent = Converted["_CloseArea"]
 
 Converted["_UICorner15"].CornerRadius = UDim.new(0, 9999)
 Converted["_UICorner15"].Parent = Converted["_Frame"]
 
 Converted["_TextLabel7"].Font = Enum.Font.Gotham
-Converted["_TextLabel7"].Text = "Swipe up here to minimize the menu."
+Converted["_TextLabel7"].Text = "Tap here to minimize."
 Converted["_TextLabel7"].TextColor3 = Color3.fromRGB(255, 255, 255)
-Converted["_TextLabel7"].TextSize = 14
+Converted["_TextLabel7"].TextSize = 15
+Converted["_TextLabel7"].TextWrapped = true
 Converted["_TextLabel7"].AnchorPoint = Vector2.new(0.5, 0.5)
 Converted["_TextLabel7"].BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Converted["_TextLabel7"].BackgroundTransparency = 0.4000000059604645
 Converted["_TextLabel7"].BorderColor3 = Color3.fromRGB(0, 0, 0)
 Converted["_TextLabel7"].BorderSizePixel = 0
-Converted["_TextLabel7"].Position = UDim2.new(0.5, 0, -0.062863946, 0)
-Converted["_TextLabel7"].Size = UDim2.new(2.5, 0, 0.740999997, 0)
+Converted["_TextLabel7"].Position = UDim2.new(0.5, 0, 0.680000007, 0)
+Converted["_TextLabel7"].Size = UDim2.new(1.39999998, 0, 0.740999997, 0)
 Converted["_TextLabel7"].Parent = Converted["_CloseArea"]
 
 Converted["_UICorner16"].Parent = Converted["_TextLabel7"]
@@ -1225,218 +1222,20 @@ do -- Fake Module: StarterGui.YARHM.FUNCTIONS
 		
 		local ts = game:GetService("TweenService")
 		
-		local ClickAndHold = {}
-		ClickAndHold.__index = ClickAndHold
 		
-		local UIS = game:GetService("UserInputService")
-		
-		function ClickAndHold.new(textButton, holdTime)
-			local self = setmetatable({}, ClickAndHold)
-			self.textButton = textButton
-			self.holdTime = holdTime or 0.5 -- Default to 0.5 seconds
-			self.holdTask = nil -- Store the task for later cancellation
-			self.Holded = Instance.new("BindableEvent")
-		
-			self.textButton.MouseButton1Down:Connect(function()
-				self.holdTask = task.spawn(function()
-					task.wait(self.holdTime) -- Wait for the specified holdTime
-					if self.holdTask then -- Check if task was cancelled
-						self.Holded:Fire()
-					end
-				end)
-			end)
-		
-		
-			UIS.InputEnded:Connect(function(inp, _)
-				if inp.UserInputType == Enum.UserInputType.MouseButton1 or Enum.UserInputType.Touch then
-					if self.holdTask then
-						coroutine.close(self.holdTask) -- Cancel the task if the button is released
-						self.holdTask = nil
-					end
-				end
-			end)
-			--self.textButton.MouseButton1Up:Connect(function()
-			--	if self.holdTask then
-			--		coroutine.close(self.holdTask) -- Cancel the task if the button is released
-			--		self.holdTask = nil
-			--	end
-			--end)
-		
-			return self
+			
+			
+		function DraggableObjectf()
+			local function a(b,c)local d=c.AbsoluteSize;local e=c.AbsolutePosition;local f=b.X.Scale*d.X+b.X.Offset;local g=b.Y.Scale*d.Y+b.Y.Offset;local h=math.clamp(f,0,d.X)local i=math.clamp(g,0,d.Y)local j=UDim2.new(b.X.Scale,h-b.X.Scale*d.X,b.Y.Scale,i-b.Y.Scale*d.Y)return j end;local k=UDim2.new;local l=game:GetService("UserInputService")local m=game:GetService("TweenService")local n={}n.__index=n;function n.new(o,p,q,r)local self={}self.Object=o;self.ToMove=p;self.Smooth=q;self.CallbackOnly=r;self.DragStarted=nil;self.DragEnded=nil;self.Dragged=nil;self.Dragging=false;self.LastPosition=nil;self.Velocity=Vector2.new(0,0)setmetatable(self,n)return self end;function n:Enable()local s=self.Object;local t=self.ToMove;local u=nil;local v=nil;local w=nil;local x=false;local function y(z)local A=z.Position-v;local B=UDim2.new(w.X.Scale,w.X.Offset+A.X,w.Y.Scale,w.Y.Offset+A.Y)if self.CallbackOnly then else B=a(B,self.Object:FindFirstAncestorWhichIsA("ScreenGui"))if(self.Smooth==nil or self.Smooth==true)and self.Smooth~=false then m:Create(t and t or s,TweenInfo.new(0.5,Enum.EasingStyle.Cubic,Enum.EasingDirection.Out),{Position=B}):Play()else local C=t and t or s;C.Position=B end end;return B end;self.InputBegan=s.InputBegan:Connect(function(z)if z.UserInputType==Enum.UserInputType.MouseButton1 or z.UserInputType==Enum.UserInputType.Touch then x=true;local D;D=z.Changed:Connect(function()if z.UserInputState==Enum.UserInputState.End and(self.Dragging or x)then self.Dragging=false;D:Disconnect()if self.DragEnded and not x then self.DragEnded(self.Velocity)end;x=false end end)end end)self.InputChanged=s.InputChanged:Connect(function(z)if z.UserInputType==Enum.UserInputType.MouseMovement or z.UserInputType==Enum.UserInputType.Touch then u=z end end)self.InputChanged2=l.InputChanged:Connect(function(z)if s.Parent==nil then self:Disable()return end;if x then x=false;if self.DragStarted then self.DragStarted()end;self.Dragging=true;v=z.Position;if t then w=t.Position else w=s.Position end;self.LastPosition=z.Position end;if z==u and self.Dragging then local B=y(z)self.Velocity=z.Position-self.LastPosition;self.LastPosition=z.Position;if self.Dragged then self.Dragged(B)end end end)end;function n:Disable()self.InputBegan:Disconnect()self.InputChanged:Disconnect()self.InputChanged2:Disconnect()if self.Dragging then self.Dragging=false;if self.DragEnded then self.DragEnded(self.Velocity)end end end;return n
 		end
+		local DraggableObject = DraggableObjectf()
 		
-		
-		
-		local function isUDim2OffScreen(position, size, screenGui)
-			-- Get the absolute size of the ScreenGui
-			local parentSize = screenGui.AbsoluteSize
-		
-			-- Calculate the absolute position and size using UDim2 and parent size
-			local absPosX = position.X.Scale * parentSize.X + position.X.Offset
-			local absPosY = position.Y.Scale * parentSize.Y + position.Y.Offset
-			local absSizeX = size.X.Scale * parentSize.X + size.X.Offset
-			local absSizeY = size.Y.Scale * parentSize.Y + size.Y.Offset
-		
-			-- Check if the GUI element defined by the UDim2 is off the screen
-			local isOffLeft = absPosX + absSizeX <= 0
-			local isOffRight = absPosX >= parentSize.X
-			local isOffTop = absPosY + absSizeY <= 0
-			local isOffBottom = absPosY >= parentSize.Y
-		
-			return isOffLeft or isOffRight or isOffTop or isOffBottom
+		function ClickAndHoldf()
+			local a={}a.__index=a;local b=game:GetService("UserInputService")function a.new(c,d)local self=setmetatable({},a)self.textButton=c;self.holdTime=d or 0.5;self.holdTask=nil;self.Holded=Instance.new("BindableEvent")self.textButton.MouseButton1Down:Connect(function()self.holdTask=task.spawn(function()task.wait(self.holdTime)if self.holdTask then self.Holded:Fire()end end)end)b.InputEnded:Connect(function(e,f)if e.UserInputType==Enum.UserInputType.MouseButton1 or Enum.UserInputType.Touch then if self.holdTask then coroutine.close(self.holdTask)self.holdTask=nil end end end)return self end;return a
 		end
+		local ClickAndHold = ClickAndHoldf()
 		
-		local UDim2_new = UDim2.new
-		
-		local UserInputService = game:GetService("UserInputService")
-		local TweenService = game:GetService("TweenService")	
-		
-		---- Variable to store the number of fingers on the screen
-		--local fingersOnScreen = 0
-		
-		---- Event listener for when a touch starts
-		--UserInputService.TouchStarted:Connect(function(touch, processedByUI)
-		--	if not processedByUI then
-		--		fingersOnScreen = fingersOnScreen + 1
-		--	end
-		--end)
-		
-		---- Event listener for when a touch ends
-		--UserInputService.TouchEnded:Connect(function(touch, processedByUI)
-		--	if not processedByUI then
-		--		fingersOnScreen = fingersOnScreen - 1
-		--	end
-		--end)
-		
-		---- Initial count (in case there are touches already when the script starts)
-		--fingersOnScreen = 0
-		
-		
-		local DraggableObject 		= {}
-		DraggableObject.__index 	= DraggableObject
-		
-		-- Sets up a new draggable object
-		function DraggableObject.new(Object, ToMove)
-			local self 			= {}
-			self.Object			= Object
-			self.ToMove         = ToMove
-			self.DragStarted	= nil
-			self.DragEnded		= nil
-			self.Dragged		= nil
-			self.Dragging		= false
-		
-			setmetatable(self, DraggableObject)
-		
-			return self
-		end
-		
-		-- Enables dragging
-		function DraggableObject:Enable()
-			local object			= self.Object
-			local toMove            = self.ToMove
-			local dragInput			= nil
-			local dragStart			= nil
-			local startPos			= nil
-			local preparingToDrag	= false
-		
-			-- Updates the element
-			local function update(input)
-				local delta 		= input.Position - dragStart
-				local newPosition	= UDim2_new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-				if isUDim2OffScreen(newPosition, object.Size, object:FindFirstAncestorWhichIsA("ScreenGui")) then
-					warn("UDim2 is offscreen.")
-					return newPosition
-				end
-				local tween = TweenService:Create(toMove and toMove or object, TweenInfo.new(0.5, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
-					Position = newPosition
-				}):Play()
-		
-				return newPosition
-			end
-		
-			self.InputBegan = object.InputBegan:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-					preparingToDrag = true
-					--[[if self.DragStarted then
-						self.DragStarted()
-					end
-					
-					dragging	 	= true
-					dragStart 		= input.Position
-					startPos 		= Element.Position
-					--]]
-		
-					local connection 
-					connection = input.Changed:Connect(function()
-						if input.UserInputState == Enum.UserInputState.End and (self.Dragging or preparingToDrag) then
-							self.Dragging = false
-							connection:Disconnect()
-		
-							if self.DragEnded and not preparingToDrag then
-								self.DragEnded()
-							end
-		
-							preparingToDrag = false
-						end
-					end)
-				end
-			end)
-		
-			self.InputChanged = object.InputChanged:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-					dragInput = input
-				end
-			end)
-		
-			self.InputChanged2 = UserInputService.InputChanged:Connect(function(input)
-				if object.Parent == nil then
-					self:Disable()
-					return
-				end
-		
-				if preparingToDrag then
-					preparingToDrag = false
-		
-					if self.DragStarted then
-						self.DragStarted()
-					end
-		
-					self.Dragging	= true
-					dragStart 		= input.Position
-					if toMove then
-						startPos 	= toMove.Position
-					else
-						startPos 	= object.Position
-					end
-				end
-		
-				if input == dragInput and self.Dragging then
-					local newPosition = update(input)
-		
-					if self.Dragged then
-						self.Dragged(newPosition)
-					end
-				end
-			end)
-		end
-		
-		-- Disables dragging
-		function DraggableObject:Disable()
-			self.InputBegan:Disconnect()
-			self.InputChanged:Disconnect()
-			self.InputChanged2:Disconnect()
-		
-			if self.Dragging then
-				self.Dragging = false
-		
-				if self.DragEnded then
-					self.DragEnded()
-				end
-			end
-		end
-		
-		
-		
+			
 		local States = {}
 		local toggleStates = {}
 		AREA = script.Parent.Menu.Area.Area
@@ -2088,191 +1887,7 @@ do -- Fake Module: StarterGui.YARHM.DraggableObject
     script.Name = "DraggableObject"
     script.Parent = Converted["_YARHM"]
     local function module_script()
-		--[[
-			@Author: Spynaz and ImperialMentor
-			@Description: Enables dragging on GuiObjects. Supports both mouse and touch.
-			
-			For instructions on how to use this module, go to this link:
-			https://devforum.roblox.com/t/simple-module-for-creating-draggable-gui-elements/230678
-		--]]
-		
-		local function isUDim2OffScreen(position, size, screenGui)
-			-- Get the absolute size of the ScreenGui
-			local parentSize = screenGui.AbsoluteSize
-		
-			-- Calculate the absolute position and size using UDim2 and parent size
-			local absPosX = position.X.Scale * parentSize.X + position.X.Offset
-			local absPosY = position.Y.Scale * parentSize.Y + position.Y.Offset
-			local absSizeX = size.X.Scale * parentSize.X + size.X.Offset
-			local absSizeY = size.Y.Scale * parentSize.Y + size.Y.Offset
-		
-			-- Check if the GUI element defined by the UDim2 is off the screen
-			local isOffLeft = absPosX + absSizeX <= 0
-			local isOffRight = absPosX >= parentSize.X
-			local isOffTop = absPosY + absSizeY <= 0
-			local isOffBottom = absPosY >= parentSize.Y
-		
-			return isOffLeft or isOffRight or isOffTop or isOffBottom
-		end
-		
-		local UDim2_new = UDim2.new
-		
-		local UserInputService = game:GetService("UserInputService")
-		local TweenService = game:GetService("TweenService")	
-		
-		---- Variable to store the number of fingers on the screen
-		--local fingersOnScreen = 0
-		
-		---- Event listener for when a touch starts
-		--UserInputService.TouchStarted:Connect(function(touch, processedByUI)
-		--	if not processedByUI then
-		--		fingersOnScreen = fingersOnScreen + 1
-		--	end
-		--end)
-		
-		---- Event listener for when a touch ends
-		--UserInputService.TouchEnded:Connect(function(touch, processedByUI)
-		--	if not processedByUI then
-		--		fingersOnScreen = fingersOnScreen - 1
-		--	end
-		--end)
-		
-		---- Initial count (in case there are touches already when the script starts)
-		--fingersOnScreen = 0
-		
-		
-		local DraggableObject 		= {}
-		DraggableObject.__index 	= DraggableObject
-		
-		-- Sets up a new draggable object
-		function DraggableObject.new(Object, ToMove, Smooth, CallbackOnly)
-			local self 			= {}
-			self.Object			= Object
-			self.ToMove         = ToMove
-			self.Smooth         = Smooth
-			self.CallbackOnly   = CallbackOnly
-			self.DragStarted	= nil
-			self.DragEnded		= nil
-			self.Dragged		= nil
-			self.Dragging		= false
-			self.LastPosition   = nil
-			self.Velocity       = Vector2.new(0, 0)
-		
-			setmetatable(self, DraggableObject)
-		
-			return self
-		end
-		
-		-- Enables dragging
-		function DraggableObject:Enable()
-			local object			= self.Object
-			local toMove            = self.ToMove
-			local dragInput			= nil
-			local dragStart			= nil
-			local startPos			= nil
-			local preparingToDrag	= false
-		
-			-- Updates the element
-			local function update(input)
-				local delta 		= input.Position - dragStart
-				local newPosition	= UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-				if isUDim2OffScreen(newPosition, object.Size, object:FindFirstAncestorWhichIsA("ScreenGui")) then
-					warn("UDim2 is offscreen.")
-					return newPosition
-				end
-				if self.CallbackOnly then
-					
-				else
-					if (self.Smooth == nil or self.Smooth == true) and self.Smooth ~= false then
-						TweenService:Create(toMove and toMove or object, TweenInfo.new(0.5, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
-							Position = newPosition
-						}):Play()
-					else
-						local ObjectToPosition = toMove and toMove or object
-						ObjectToPosition.Position = newPosition
-					end
-				end
-		
-				return newPosition
-			end
-		
-			self.InputBegan = object.InputBegan:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-					preparingToDrag = true
-					local connection 
-					connection = input.Changed:Connect(function()
-						if input.UserInputState == Enum.UserInputState.End and (self.Dragging or preparingToDrag) then
-							self.Dragging = false
-							connection:Disconnect()
-		
-							if self.DragEnded and not preparingToDrag then
-								self.DragEnded(self.Velocity)
-							end
-		
-							preparingToDrag = false
-						end
-					end)
-				end
-			end)
-		
-			self.InputChanged = object.InputChanged:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-					dragInput = input
-				end
-			end)
-		
-			self.InputChanged2 = UserInputService.InputChanged:Connect(function(input)
-				if object.Parent == nil then
-					self:Disable()
-					return
-				end
-		
-				if preparingToDrag then
-					preparingToDrag = false
-		
-					if self.DragStarted then
-						self.DragStarted()
-					end
-		
-					self.Dragging	= true
-					dragStart 		= input.Position
-					if toMove then
-						startPos 	= toMove.Position
-					else
-						startPos 	= object.Position
-					end
-					self.LastPosition = input.Position
-				end
-		
-				if input == dragInput and self.Dragging then
-					local newPosition = update(input)
-					self.Velocity = input.Position - self.LastPosition
-					self.LastPosition = input.Position
-		
-					if self.Dragged then
-						self.Dragged(newPosition)
-					end
-				end
-			end)
-		end
-		
-		-- Disables dragging
-		function DraggableObject:Disable()
-			self.InputBegan:Disconnect()
-			self.InputChanged:Disconnect()
-			self.InputChanged2:Disconnect()
-		
-			if self.Dragging then
-				self.Dragging = false
-		
-				if self.DragEnded then
-					self.DragEnded(self.Velocity)
-				end
-			end
-		end
-		
-		return DraggableObject
-		
+		local function a(b,c)local d=c.AbsoluteSize;local e=c.AbsolutePosition;local f=b.X.Scale*d.X+b.X.Offset;local g=b.Y.Scale*d.Y+b.Y.Offset;local h=math.clamp(f,0,d.X)local i=math.clamp(g,0,d.Y)local j=UDim2.new(b.X.Scale,h-b.X.Scale*d.X,b.Y.Scale,i-b.Y.Scale*d.Y)return j end;local k=UDim2.new;local l=game:GetService("UserInputService")local m=game:GetService("TweenService")local n={}n.__index=n;function n.new(o,p,q,r)local self={}self.Object=o;self.ToMove=p;self.Smooth=q;self.CallbackOnly=r;self.DragStarted=nil;self.DragEnded=nil;self.Dragged=nil;self.Dragging=false;self.LastPosition=nil;self.Velocity=Vector2.new(0,0)setmetatable(self,n)return self end;function n:Enable()local s=self.Object;local t=self.ToMove;local u=nil;local v=nil;local w=nil;local x=false;local function y(z)local A=z.Position-v;local B=UDim2.new(w.X.Scale,w.X.Offset+A.X,w.Y.Scale,w.Y.Offset+A.Y)if self.CallbackOnly then else B=a(B,self.Object:FindFirstAncestorWhichIsA("ScreenGui"))if(self.Smooth==nil or self.Smooth==true)and self.Smooth~=false then m:Create(t and t or s,TweenInfo.new(0.5,Enum.EasingStyle.Cubic,Enum.EasingDirection.Out),{Position=B}):Play()else local C=t and t or s;C.Position=B end end;return B end;self.InputBegan=s.InputBegan:Connect(function(z)if z.UserInputType==Enum.UserInputType.MouseButton1 or z.UserInputType==Enum.UserInputType.Touch then x=true;local D;D=z.Changed:Connect(function()if z.UserInputState==Enum.UserInputState.End and(self.Dragging or x)then self.Dragging=false;D:Disconnect()if self.DragEnded and not x then self.DragEnded(self.Velocity)end;x=false end end)end end)self.InputChanged=s.InputChanged:Connect(function(z)if z.UserInputType==Enum.UserInputType.MouseMovement or z.UserInputType==Enum.UserInputType.Touch then u=z end end)self.InputChanged2=l.InputChanged:Connect(function(z)if s.Parent==nil then self:Disable()return end;if x then x=false;if self.DragStarted then self.DragStarted()end;self.Dragging=true;v=z.Position;if t then w=t.Position else w=s.Position end;self.LastPosition=z.Position end;if z==u and self.Dragging then local B=y(z)self.Velocity=z.Position-self.LastPosition;self.LastPosition=z.Position;if self.Dragged then self.Dragged(B)end end end)end;function n:Disable()self.InputBegan:Disconnect()self.InputChanged:Disconnect()self.InputChanged2:Disconnect()if self.Dragging then self.Dragging=false;if self.DragEnded then self.DragEnded(self.Velocity)end end end;return n
 		
     end
     fake_module_scripts[script] = module_script
@@ -2282,48 +1897,7 @@ do -- Fake Module: StarterGui.YARHM.ClickAndHold
     script.Name = "ClickAndHold"
     script.Parent = Converted["_YARHM"]
     local function module_script()
-		local ClickAndHold = {}
-		ClickAndHold.__index = ClickAndHold
-		
-		local UIS = game:GetService("UserInputService")
-		
-		function ClickAndHold.new(textButton, holdTime)
-			local self = setmetatable({}, ClickAndHold)
-			self.textButton = textButton
-			self.holdTime = holdTime or 0.5 -- Default to 0.5 seconds
-			self.holdTask = nil -- Store the task for later cancellation
-			self.Holded = Instance.new("BindableEvent")
-		
-			self.textButton.MouseButton1Down:Connect(function()
-				self.holdTask = task.spawn(function()
-					task.wait(self.holdTime) -- Wait for the specified holdTime
-					if self.holdTask then -- Check if task was cancelled
-						self.Holded:Fire()
-					end
-				end)
-			end)
-		
-		
-			UIS.InputEnded:Connect(function(inp, _)
-				if inp.UserInputType == Enum.UserInputType.MouseButton1 or Enum.UserInputType.Touch then
-					if self.holdTask then
-						coroutine.close(self.holdTask) -- Cancel the task if the button is released
-						self.holdTask = nil
-					end
-				end
-			end)
-			--self.textButton.MouseButton1Up:Connect(function()
-			--	if self.holdTask then
-			--		coroutine.close(self.holdTask) -- Cancel the task if the button is released
-			--		self.holdTask = nil
-			--	end
-			--end)
-		
-			return self
-		end
-		
-		return ClickAndHold
-		
+		local a={}a.__index=a;local b=game:GetService("UserInputService")function a.new(c,d)local self=setmetatable({},a)self.textButton=c;self.holdTime=d or 0.5;self.holdTask=nil;self.Holded=Instance.new("BindableEvent")self.textButton.MouseButton1Down:Connect(function()self.holdTask=task.spawn(function()task.wait(self.holdTime)if self.holdTask then self.Holded:Fire()end end)end)b.InputEnded:Connect(function(e,f)if e.UserInputType==Enum.UserInputType.MouseButton1 or Enum.UserInputType.Touch then if self.holdTask then coroutine.close(self.holdTask)self.holdTask=nil end end end)return self end;return a
     end
     fake_module_scripts[script] = module_script
 end
@@ -2332,330 +1906,14 @@ do -- Fake Module: StarterGui.YARHM.Spring
     script.Name = "Spring"
     script.Parent = Converted["_YARHM"]
     local function module_script()
-		local RunService = game:GetService("RunService")
-		
-		local EQ = {}
-		
-		function OverDamping(m, a, k, y0, v0, f)
-			local delta = a*a - 4*k/m
-			local d = -1/2
-			local w1 = a + math.sqrt(delta)
-			local w2 = a - math.sqrt(delta)
-			local r1, r2 = d*w1, d*w2
-			local c1, c2 = (r2*y0 - v0)/(r2 - r1), (r1*y0 - v0)/(r1 - r2)
-			local yp = f/k
-		
-			return {
-				Offset = function(t)
-					return c1*math.exp(r1*t) + c2*math.exp(r2*t) + yp
-				end,
-				Velocity = function(t)
-					return c1*r1*math.exp(r1*t) + c2*r2*math.exp(r2*t)
-				end,
-				Acceleration = function(t)
-					return c1*r1*r1*math.exp(r1*t) + c2*r2*r2*math.exp(r2*t)
-				end,
-			}
-		end
-		
-		function CriticalDamping(m, a, k, y0, v0, f)
-			local r = -a/2
-			local c1, c2 = y0, v0 - r*y0
-			local yp = f/k
-		
-			return {
-				Offset = function(t)
-					return math.exp(r*t)*(c1 + c2*t) + yp
-				end,
-				Velocity = function(t)
-					return math.exp(r*t)*(c2*r*t + c1*r + c2)
-				end,
-				Acceleration = function(t)
-					return r*math.exp(r*t)*(c2*r*t + c1*r + 2*c2)
-				end,
-			}
-		end
-		
-		function UnderDamping(m, a, k, y0, v0, f)
-			local delta = a*a - 4*k/m
-			local r = -a/2
-			local s = math.sqrt(-delta)
-			local c1, c2 = y0, (v0 - (r*y0))/s
-			local yp = f/k
-		
-			return {
-				Offset = function(t)
-					return math.exp(r*t)*(c1*math.cos(s*t) + c2*math.sin(s*t)) + yp
-				end,
-				Velocity = function(t)
-					return -math.exp(r*t)*((c1*s - c2*r)*math.sin(s*t) + (-c2*s - c1*r)*math.cos(s*t))
-				end,
-				Acceleration = function(t)
-					return -math.exp(r*t)*((c2*s*s + 2*c1*r*s - c2*r*r)*math.sin(s*t) + (c1*s*s - 2*c2*r*s - c1*r*r)*math.cos(s*t))
-				end,
-			}
-		end
-		
-		function EQ.F(Spring)
-			local y0, v0, f = Spring.InitialOffset, Spring.InitialVelocity, Spring.ExternalForce
-			local m, a, k = Spring.Mass, Spring.Damping, Spring.Constant
-			local delta = a*a - 4*k/m
-		
-			if delta > 0 then
-				return OverDamping(m, a, k, y0, v0, f)
-			elseif delta == 0 then
-				return CriticalDamping(m, a, k, y0, v0, f)
-			else
-				return UnderDamping(m, a, k, y0, v0, f)
-			end
-		end
-		
-		local Eq = EQ
-		
-		local sqrt = math.sqrt
-		local PI = math.pi
-		
-		local SPRING_PROPERTIES = {
-			OFFSET = "Offset",
-			VELOCITY = "Velocity",
-			ACCELERATION = "Acceleration",
-			GOAL = "Goal",
-			FREQUENCY = "Frequency",
-		}
-		
-		local SPRING_PROPERTIES_FORMAT_STRING_BASIC = [[.
-		------------------------
-		SPRING PROPERTIES BASIC:
-		------------------------
-		[DELTA PROPERTIES]:
-			--> [OFFSET]: %.3f
-			--> [VELOCITY]: %.3f
-			--> [ACCELERATION]: %.3f
-		]]
-		
-		local SPRING_PROPERTIES_FORMAT_STRING_ADVANCED = [[.
-		---------------------------
-		SPRING PROPERTIES ADVANCED:
-		---------------------------
-		[BASE PROPERTIES]:
-			--> MASS: %.3f
-			--> DAMPING: %.3f
-			--> STIFFNESS: %.3f
-			--> GOAL: %.3f
-			--> FREQUENCY: %.3f
-			--> INITIAL OFFSET: %.3f
-			--> INITIAL VELOCITY: %.3f
-			--> EXTERNAL FORCE: %.3f
-			--> START TICK: %f
-		[DELTA PROPERTIES]:
-			--> [OFFSET]: %.3f
-			--> [VELOCITY]: %.3f
-			--> [ACCELERATION]: %.3f
-		]]
-		
-		local Spring = {}
-		local SpringFunctions = {}
-		
-		SpringFunctions.__index = function(self, index)
-			local INDEX_HANDLERS = {
-				[SPRING_PROPERTIES.OFFSET] = function()
-					local t = tick() - self.StartTick
-					local F = self.F
-					local offset = F.Offset(t)
-					return offset
-				end,
-				[SPRING_PROPERTIES.VELOCITY] = function()
-					local t = tick() - self.StartTick
-					local F = self.F
-					local velocity = F.Velocity(t)
-					return velocity
-				end,
-				[SPRING_PROPERTIES.ACCELERATION] = function()
-					local t = tick() - self.StartTick
-					local F = self.F
-					local acceleration = F.Acceleration(t)
-					return acceleration
-				end,
-				[SPRING_PROPERTIES.GOAL] = function()
-					local externalForce = self.ExternalForce
-					local constant = self.Constant
-					return externalForce / constant
-				end,
-				[SPRING_PROPERTIES.FREQUENCY] = function()
-					local damping = self.Damping
-					local stiffness = self.Constant
-					local mass = self.Mass
-					return sqrt(-damping*damping + 4*stiffness/mass)/(2*PI)
-				end,
-			}
-			local rawValue = rawget(self, index)
-			if rawValue ~= nil then
-				return rawValue
-			end
-			local indexHandler = INDEX_HANDLERS[index]
-			if indexHandler ~= nil then
-				return indexHandler()
-			end
-			return SpringFunctions[index]
-		end
-		
-		SpringFunctions.__tostring = function(self)
-			local t = tick() - self.StartTick
-			local F = self.F
-			local aose = self.AdvancedObjectStringEnabled
-			local formattedString
-			if aose == false then
-				formattedString = string.format(
-					SPRING_PROPERTIES_FORMAT_STRING_BASIC,
-					F.Offset(t),
-					F.Velocity(t),
-					F.Acceleration(t)
-				)
-			elseif aose == true then
-				formattedString = string.format(
-					SPRING_PROPERTIES_FORMAT_STRING_ADVANCED,
-					self.Mass,
-					self.Damping,
-					self.Constant,
-					self.Goal,
-					self.Frequency,
-					self.InitialOffset,
-					self.InitialVelocity,
-					self.ExternalForce,
-					self.StartTick,
-					F.Offset(t),
-					F.Velocity(t),
-					F.Acceleration(t)
-				)
-			end
-			return formattedString
-		end
-		
-		function Spring.new(mass, damping, stiffness, y0, v0, goal)
-			assert(mass > 0, "Mass for spring system cannot be less than or equal to 0")
-			assert(stiffness > 0, "Spring constant for spring system cannot be less than or equal to 0")
-		
-			y0 = y0 or 0
-			v0 = v0 or 0
-			goal = goal or 0
-		
-			local extf = goal * stiffness
-		
-			local _Spring = {
-				Mass = mass,
-				Damping = damping,
-				Constant = stiffness,
-				InitialOffset = y0 - goal,
-				InitialVelocity = v0,
-				ExternalForce = extf,
-				AdvancedObjectStringEnabled = false,
-				StartTick = 0,
-			}
-		
-			setmetatable(_Spring, SpringFunctions)
-			_Spring:Reset()
-			return _Spring
-		end
-		
-		function Spring.fromFrequency(mass, damping, frequency, y0, v0, goal)
-			assert(mass > 0, "Mass for spring system cannot be less than or equal to 0")
-			assert(frequency > 0, "Spring frequency for spring system cannot be less than or equal to 0")
-		
-			local stiffness = 0.25*mass*(4*PI*PI*frequency*frequency + damping*damping)
-		
-			y0 = y0 or 0
-			v0 = v0 or 0
-			goal = goal or 0
-		
-			local extf = goal * stiffness
-		
-			local _Spring = {
-				Mass = mass,
-				Damping = damping,
-				Constant = stiffness,
-				InitialOffset = y0 - goal,
-				InitialVelocity = v0,
-				ExternalForce = extf,
-				AdvancedObjectStringEnabled = false,
-				StartTick = 0,
-			}
-		
-			setmetatable(_Spring, SpringFunctions)
-			_Spring:Reset()
-			return _Spring
-		end
-		
-		function SpringFunctions:Reset()
-			self.F = Eq.F(self)
-			self.StartTick = tick()
-		end
-		
-		function SpringFunctions:SetExternalForce(force)
-			self.ExternalForce = force
-			self.InitialOffset =  self.Offset - force / self.Constant
-			self.InitialVelocity =  self.Velocity
-			self:Reset()
-		end
-		
-		function SpringFunctions:SetGoal(goal)
-			self.ExternalForce = goal * self.Constant
-			self.InitialOffset = self.Offset - goal
-			self.InitialVelocity = self.Velocity
-			self:Reset()
-		end
-		
-		function SpringFunctions:SetFrequency(frequency)
-			self.Constant = 0.25*self.Mass*(4*PI*PI*frequency*frequency + self.Damping*self.Damping)
-			self.InitialOffset = self.Offset
-			self.InitialVelocity = self.Velocity
-			self:Reset()
-		end
-		
-		function SpringFunctions:SnapToCriticalDamping()
-			self.Damping = 2*sqrt(self.Constant/self.Mass)
-			self.InitialOffset = self.Offset
-			self.InitialVelocity = self.Velocity
-			self:Reset()
-		end
-		
-		function SpringFunctions:SetOffset(offset, zeroVelocity)
-			self.InitialOffset = offset - self.Goal
-			self.InitialVelocity = zeroVelocity and 0 or self.Velocity
-			self:Reset()
-		end
-		
-		function SpringFunctions:AddOffset(offset)
-			self.InitialOffset = self.Offset + offset
-			self.InitialVelocity = self.Velocity
-			self:Reset()
-		end
-		
-		function SpringFunctions:SetVelocity(velocity)
-			self.InitialOffset = self.Offset
-			self.InitialVelocity = velocity
-			self:Reset()
-		end
-		
-		function SpringFunctions:AddVelocity(velocity)
-			self.InitialOffset = self.Offset
-			self.InitialVelocity = self.Velocity + velocity
-			self:Reset()
-		end
-		
-		function SpringFunctions:Print()
-			local springString = tostring(self)
-			print(springString)
-		end
-		
-		return Spring
-		
+		local a=game:GetService("RunService")local b={}function OverDamping(c,d,e,f,g,h)local i=d*d-4*e/c;local j=-1/2;local k=d+math.sqrt(i)local l=d-math.sqrt(i)local m,n=j*k,j*l;local o,p=(n*f-g)/(n-m),(m*f-g)/(m-n)local q=h/e;return{Offset=function(r)return o*math.exp(m*r)+p*math.exp(n*r)+q end,Velocity=function(r)return o*m*math.exp(m*r)+p*n*math.exp(n*r)end,Acceleration=function(r)return o*m*m*math.exp(m*r)+p*n*n*math.exp(n*r)end}end;function CriticalDamping(c,d,e,f,g,h)local s=-d/2;local o,p=f,g-s*f;local q=h/e;return{Offset=function(r)return math.exp(s*r)*(o+p*r)+q end,Velocity=function(r)return math.exp(s*r)*(p*s*r+o*s+p)end,Acceleration=function(r)return s*math.exp(s*r)*(p*s*r+o*s+2*p)end}end;function UnderDamping(c,d,e,f,g,h)local i=d*d-4*e/c;local s=-d/2;local t=math.sqrt(-i)local o,p=f,(g-s*f)/t;local q=h/e;return{Offset=function(r)return math.exp(s*r)*(o*math.cos(t*r)+p*math.sin(t*r))+q end,Velocity=function(r)return-math.exp(s*r)*((o*t-p*s)*math.sin(t*r)+(-p*t-o*s)*math.cos(t*r))end,Acceleration=function(r)return-math.exp(s*r)*((p*t*t+2*o*s*t-p*s*s)*math.sin(t*r)+(o*t*t-2*p*s*t-o*s*s)*math.cos(t*r))end}end;function b.F(u)local f,g,h=u.InitialOffset,u.InitialVelocity,u.ExternalForce;local c,d,e=u.Mass,u.Damping,u.Constant;local i=d*d-4*e/c;if i>0 then return OverDamping(c,d,e,f,g,h)elseif i==0 then return CriticalDamping(c,d,e,f,g,h)else return UnderDamping(c,d,e,f,g,h)end end;local v=b;local w=math.sqrt;local x=math.pi;local y={OFFSET="Offset",VELOCITY="Velocity",ACCELERATION="Acceleration",GOAL="Goal",FREQUENCY="Frequency"}local z=[[.]]local A=[[.]]local u={}local B={}B.__index=function(self,C)local D={[y.OFFSET]=function()local r=tick()-self.StartTick;local E=self.F;local F=E.Offset(r)return F end,[y.VELOCITY]=function()local r=tick()-self.StartTick;local E=self.F;local G=E.Velocity(r)return G end,[y.ACCELERATION]=function()local r=tick()-self.StartTick;local E=self.F;local H=E.Acceleration(r)return H end,[y.GOAL]=function()local I=self.ExternalForce;local J=self.Constant;return I/J end,[y.FREQUENCY]=function()local K=self.Damping;local L=self.Constant;local M=self.Mass;return w(-K*K+4*L/M)/(2*x)end}local N=rawget(self,C)if N~=nil then return N end;local O=D[C]if O~=nil then return O()end;return B[C]end;B.__tostring=function(self)local r=tick()-self.StartTick;local E=self.F;local P=self.AdvancedObjectStringEnabled;local Q;if P==false then Q=string.format(z,E.Offset(r),E.Velocity(r),E.Acceleration(r))elseif P==true then Q=string.format(A,self.Mass,self.Damping,self.Constant,self.Goal,self.Frequency,self.InitialOffset,self.InitialVelocity,self.ExternalForce,self.StartTick,E.Offset(r),E.Velocity(r),E.Acceleration(r))end;return Q end;function u.new(M,K,L,f,g,R)assert(M>0,"Mass for spring system cannot be less than or equal to 0")assert(L>0,"Spring constant for spring system cannot be less than or equal to 0")f=f or 0;g=g or 0;R=R or 0;local S=R*L;local T={Mass=M,Damping=K,Constant=L,InitialOffset=f-R,InitialVelocity=g,ExternalForce=S,AdvancedObjectStringEnabled=false,StartTick=0}setmetatable(T,B)T:Reset()return T end;function u.fromFrequency(M,K,U,f,g,R)assert(M>0,"Mass for spring system cannot be less than or equal to 0")assert(U>0,"Spring frequency for spring system cannot be less than or equal to 0")local L=0.25*M*(4*x*x*U*U+K*K)f=f or 0;g=g or 0;R=R or 0;local S=R*L;local T={Mass=M,Damping=K,Constant=L,InitialOffset=f-R,InitialVelocity=g,ExternalForce=S,AdvancedObjectStringEnabled=false,StartTick=0}setmetatable(T,B)T:Reset()return T end;function B:Reset()self.F=v.F(self)self.StartTick=tick()end;function B:SetExternalForce(V)self.ExternalForce=V;self.InitialOffset=self.Offset-V/self.Constant;self.InitialVelocity=self.Velocity;self:Reset()end;function B:SetGoal(R)self.ExternalForce=R*self.Constant;self.InitialOffset=self.Offset-R;self.InitialVelocity=self.Velocity;self:Reset()end;function B:SetFrequency(U)self.Constant=0.25*self.Mass*(4*x*x*U*U+self.Damping*self.Damping)self.InitialOffset=self.Offset;self.InitialVelocity=self.Velocity;self:Reset()end;function B:SnapToCriticalDamping()self.Damping=2*w(self.Constant/self.Mass)self.InitialOffset=self.Offset;self.InitialVelocity=self.Velocity;self:Reset()end;function B:SetOffset(F,W)self.InitialOffset=F-self.Goal;self.InitialVelocity=W and 0 or self.Velocity;self:Reset()end;function B:AddOffset(F)self.InitialOffset=self.Offset+F;self.InitialVelocity=self.Velocity;self:Reset()end;function B:SetVelocity(G)self.InitialOffset=self.Offset;self.InitialVelocity=G;self:Reset()end;function B:AddVelocity(G)self.InitialOffset=self.Offset;self.InitialVelocity=self.Velocity+G;self:Reset()end;function B:Print()local X=tostring(self)print(X)end;return u
     end
     fake_module_scripts[script] = module_script
 end
 
 -- Fake Local Scripts:
 
-local function DOUA_fake_script() -- Fake Script: StarterGui.YARHM.Open.InitOpen
+local function EVEXG_fake_script() -- Fake Script: StarterGui.YARHM.Open.InitOpen
     local script = Instance.new("LocalScript")
     script.Name = "InitOpen"
     script.Parent = Converted["_Open"]
@@ -2691,7 +1949,7 @@ local function DOUA_fake_script() -- Fake Script: StarterGui.YARHM.Open.InitOpen
 	--	Transparency = 1
 	--}):Play()
 end
-local function BQRSXUT_fake_script() -- Fake Script: StarterGui.YARHM.Open.OnClick
+local function BGSB_fake_script() -- Fake Script: StarterGui.YARHM.Open.OnClick
     local script = Instance.new("LocalScript")
     script.Name = "OnClick"
     script.Parent = Converted["_Open"]
@@ -2736,7 +1994,7 @@ local function BQRSXUT_fake_script() -- Fake Script: StarterGui.YARHM.Open.OnCli
 	end)
 	
 end
-local function IQAA_fake_script() -- Fake Script: StarterGui.YARHM.Open.Resizer
+local function ACWKM_fake_script() -- Fake Script: StarterGui.YARHM.Open.Resizer
     local script = Instance.new("LocalScript")
     script.Name = "Resizer"
     script.Parent = Converted["_Open"]
@@ -2822,7 +2080,7 @@ local function IQAA_fake_script() -- Fake Script: StarterGui.YARHM.Open.Resizer
 	userInputService.InputChanged:Connect(onInputChanged)
 	
 end
-local function UQYYYWR_fake_script() -- Fake Script: StarterGui.YARHM.Init
+local function OORS_fake_script() -- Fake Script: StarterGui.YARHM.Init
     local script = Instance.new("LocalScript")
     script.Name = "Init"
     script.Parent = Converted["_YARHM"]
@@ -2853,21 +2111,21 @@ local function UQYYYWR_fake_script() -- Fake Script: StarterGui.YARHM.Init
 			local hiddenUI = get_hidden_gui or gethui
 			script.Parent.Name = randomString()
 			script.Parent.Parent = hiddenUI()
-			print("[YARHM Elite+] - Using get_hidden_gui for anti-detection.")
+			print("[YARHM] - Using get_hidden_gui for anti-detection.")
 		elseif (not is_sirhurt_closure) and (syn and syn.protect_gui) then
 			script.Parent.Name = randomString()
 			syn.protect_gui(script.Parent)
 			script.Parent.Parent = COREGUI
-			print("[YARHM Elite+] - Using syn.protect_gui for anti-detection.")
+			print("[YARHM] - Using syn.protect_gui for anti-detection.")
 		elseif COREGUI:FindFirstChild('RobloxGui') then
 			script.Parent.Parent = COREGUI.RobloxGui
-			print("[YARHM Elite+] - Using RobloxGui for anti-detection.")
+			print("[YARHM] - Using RobloxGui for anti-detection.")
 		else
-			warn("[YARHM Elite+] - Using CoreGui as anti-detection. This is the most basic coverage and can still be detected.")
+			warn("[YARHM] - Using CoreGui as anti-detection. This is the most basic coverage and can still be detected.")
 		end
 	end)
 	
-	print("[YARHM Elite+] - YARHM is now in " .. tostring(script.Parent:GetFullName()))
+	print("[YARHM] - YARHM is now in " .. tostring(script.Parent:GetFullName()))
 	if not s then
 		warn("[YARHM] - Attempts at anti-detection failed. Using CoreGui as anti-detection.")
 		warn(e)	
@@ -2890,8 +2148,8 @@ local function UQYYYWR_fake_script() -- Fake Script: StarterGui.YARHM.Init
 	
 	_G.Modules = {}
 	
-	--require(script.Parent.FUNCTIONS).notification("Thanks for using YARHM Elite+! To use this hub, triple-click/tap the top region of your screen.")
-	require(script.Parent.FUNCTIONS).notification("Welcome to YARHM Elite+ v1.15!")
+	--require(script.Parent.FUNCTIONS).notification("Thanks for using YARHM! To use this hub, triple-click/tap the top region of your screen.")
+	require(script.Parent.FUNCTIONS).notification("Welcome to YARHM v1.16!")
 	
 	
 	--local menudrag = require(script.Parent.DraggableObject).new(script.Parent.Menu)
@@ -2921,7 +2179,7 @@ local function UQYYYWR_fake_script() -- Fake Script: StarterGui.YARHM.Init
 	
 	--require(script.Parent.DraggableObject).new(script.Parent.Menu.CanvasGroup.Opener, script.Parent.Menu):Enable()
 end
-local function ABXU_fake_script() -- Fake Script: StarterGui.YARHM.FloatingButton.Keybinding
+local function BGOJG_fake_script() -- Fake Script: StarterGui.YARHM.FloatingButton.Keybinding
     local script = Instance.new("LocalScript")
     script.Name = "Keybinding"
     script.Parent = Converted["_FloatingButton"]
@@ -2936,7 +2194,7 @@ local function ABXU_fake_script() -- Fake Script: StarterGui.YARHM.FloatingButto
 
 	
 end
-local function VMDKWQV_fake_script() -- Fake Script: StarterGui.YARHM.FloatingButton.Invisible
+local function NRXD_fake_script() -- Fake Script: StarterGui.YARHM.FloatingButton.Invisible
     local script = Instance.new("LocalScript")
     script.Name = "Invisible"
     script.Parent = Converted["_FloatingButton"]
@@ -2986,7 +2244,7 @@ local function VMDKWQV_fake_script() -- Fake Script: StarterGui.YARHM.FloatingBu
 	--	holding = false
 	--end)
 end
-local function NQKTS_fake_script() -- Fake Script: StarterGui.YARHM.AddCustomModule.Add.LocalScript
+local function HVIQD_fake_script() -- Fake Script: StarterGui.YARHM.AddCustomModule.Add.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Add"]
@@ -3027,7 +2285,7 @@ local function NQKTS_fake_script() -- Fake Script: StarterGui.YARHM.AddCustomMod
 		end
 	end)
 end
-local function ZYXQCPD_fake_script() -- Fake Script: StarterGui.YARHM.AddCustomModule.Cancel.LocalScript
+local function JKKT_fake_script() -- Fake Script: StarterGui.YARHM.AddCustomModule.Cancel.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Cancel"]
@@ -3051,7 +2309,7 @@ local function ZYXQCPD_fake_script() -- Fake Script: StarterGui.YARHM.AddCustomM
 		}):Play()
 	end)
 end
-local function TQOVGPZ_fake_script() -- Fake Script: StarterGui.YARHM.Menu.UIStroke.UIGradient.Animator
+local function LHKF_fake_script() -- Fake Script: StarterGui.YARHM.Menu.UIStroke.UIGradient.Animator
     local script = Instance.new("LocalScript")
     script.Name = "Animator"
     script.Parent = Converted["_UIGradient2"]
@@ -3072,7 +2330,7 @@ local function TQOVGPZ_fake_script() -- Fake Script: StarterGui.YARHM.Menu.UIStr
 			Rotation = -180
 		}):Play()
 end
-local function JLRNWW_fake_script() -- Fake Script: StarterGui.YARHM.Menu.List.AutoSetup
+local function EMTTMGQ_fake_script() -- Fake Script: StarterGui.YARHM.Menu.List.AutoSetup
     local script = Instance.new("LocalScript")
     script.Name = "AutoSetup"
     script.Parent = Converted["_List"]
@@ -3126,7 +2384,7 @@ local function JLRNWW_fake_script() -- Fake Script: StarterGui.YARHM.Menu.List.A
 		end
 	end)
 end
-local function QJSKRJ_fake_script() -- Fake Script: StarterGui.YARHM.Menu.AddCustomModule.LocalScript
+local function JYFQBDS_fake_script() -- Fake Script: StarterGui.YARHM.Menu.AddCustomModule.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_AddCustomModule1"]
@@ -3150,7 +2408,7 @@ local function QJSKRJ_fake_script() -- Fake Script: StarterGui.YARHM.Menu.AddCus
 		}):Play()
 	end)
 end
-local function DWGMFU_fake_script() -- Fake Script: StarterGui.YARHM.Menu.Close.LocalScript
+local function TTSMCL_fake_script() -- Fake Script: StarterGui.YARHM.Menu.Close.LocalScript
     local script = Instance.new("LocalScript")
     script.Name = "LocalScript"
     script.Parent = Converted["_Close"]
@@ -3176,7 +2434,7 @@ local function DWGMFU_fake_script() -- Fake Script: StarterGui.YARHM.Menu.Close.
 		}):Play()
 	end)
 end
-local function THBUHLS_fake_script() -- Fake Script: StarterGui.YARHM.Menu.CloseArea.CloseOpen
+local function VZYVYS_fake_script() -- Fake Script: StarterGui.YARHM.Menu.CloseArea.CloseOpen
     local script = Instance.new("LocalScript")
     script.Name = "CloseOpen"
     script.Parent = Converted["_CloseArea"]
@@ -3191,6 +2449,7 @@ local function THBUHLS_fake_script() -- Fake Script: StarterGui.YARHM.Menu.Close
 
 	local TweenService = game:GetService("TweenService")
 	local RunService = game:GetService("RunService")
+	local UserInputService = game:GetService("UserInputService")
 	
 	local menu = script.Parent.Parent
 	local Spring = require(menu.Parent.Spring)
@@ -3205,13 +2464,16 @@ local function THBUHLS_fake_script() -- Fake Script: StarterGui.YARHM.Menu.Close
 	local closed = false
 	local springing = false
 	
+	local lastPos = UDim2.fromScale(0.018, 0.968)
+	local closedLastPos = UDim2.fromScale(0.5, 0.1)
+	
 	-- Initialize springs for menu position and size
 	local MenuPosXScale = Spring.new(0.7, 30, 100, 0.018, 0, 0.018)
-	local MenuPosYScale = Spring.new(0.7, 30, 100, menu.Position.Y.Scale, 0, menu.Position.Y.Scale)
+	local MenuPosYScale = Spring.new(1, 25, 100, menu.Position.Y.Scale, 0, menu.Position.Y.Scale)
 	local MenuPosXOffset = Spring.new(0.7, 30, 100, 0, 0)
-	local MenuPosYOffset = Spring.new(0.7, 30, 100, 0, 0)
-	local MenuSizeXOffset = Spring.new(1, 25, 100, menu.Size.X.Offset, 0, menu.Size.X.Offset)
-	local MenuSizeYOffset = Spring.new(1, 25, 100, menu.Size.Y.Offset, 0, menu.Size.Y.Offset)
+	local MenuPosYOffset = Spring.new(1, 25, 100, 0, 0)
+	local MenuSizeXOffset = Spring.new(1.5, 25, 100, menu.Size.X.Offset, 0, menu.Size.X.Offset)
+	local MenuSizeYOffset = Spring.new(1.5, 25, 100, menu.Size.Y.Offset, 0, menu.Size.Y.Offset)
 	
 	-- Functions to update spring goals and offsets
 	local function setSpringPosGoal(udim2)
@@ -3238,10 +2500,30 @@ local function THBUHLS_fake_script() -- Fake Script: StarterGui.YARHM.Menu.Close
 	local MenuDrag = DraggableObject.new(script.Parent, menu, false, true)
 	MenuDrag:Enable()
 	
+	local OpenerMenuDrag = DraggableObject.new(script.Parent.Parent.CanvasGroup.Opener, menu, false, true)
+	OpenerMenuDrag:Enable()
+	
 	textHidden = false
 	
 	-- Dragging behavior
 	MenuDrag.Dragged = function(pos)
+		--if not textHidden then
+		--	textHidden = true
+		--	TweenService:Create(script.Parent.TextLabel, TweenInfo.new(1, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
+		--		TextTransparency = 1,
+		--		BackgroundTransparency = 1
+		--	}):Play()
+		--end
+		lastPos = pos
+		setSpringPosGoal(pos)
+	end
+	
+	OpenerMenuDrag.Dragged = function(pos)
+		closedLastPos = pos
+		setSpringPosGoal(pos)
+	end
+	
+	script.Parent.MouseButton1Click:Connect(function()
 		if not textHidden then
 			textHidden = true
 			TweenService:Create(script.Parent.TextLabel, TweenInfo.new(1, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
@@ -3249,28 +2531,38 @@ local function THBUHLS_fake_script() -- Fake Script: StarterGui.YARHM.Menu.Close
 				BackgroundTransparency = 1
 			}):Play()
 		end
-		setSpringPosGoal(pos)
-	end
+		TweenService:Create(menu, TweenInfo.new(2, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
+			AnchorPoint = Vector2.new(0.5, 0.5)
+		}):Play()
+		springing = true
+		setSpringPosGoal(closedLastPos)
+		setSpringSizeGoal(UDim2.fromOffset(60, 60))
+		--script.Parent.ZIndex = script.Parent.ZIndex - 2
+		menu.CanvasGroup.Visible = true
+		TweenService:Create(menu.CanvasGroup, TweenInfo.new(0.5, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
+			GroupTransparency = 0
+		}):Play()
+	end)
 	
-	MenuDrag.DragEnded = function(vel)
-		if vel.Y < -1 then
-			-- Menu closing animation
-			TweenService:Create(menu, TweenInfo.new(2, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
-				AnchorPoint = Vector2.new(0.5, 0.5)
-			}):Play()
-			springing = true
-			setSpringPosGoal(UDim2.fromScale(0.5, 0.1))
-			setSpringSizeGoal(UDim2.fromOffset(60, 60))
-			--script.Parent.ZIndex = script.Parent.ZIndex - 2
-			menu.CanvasGroup.Visible = true
-			TweenService:Create(menu.CanvasGroup, TweenInfo.new(0.5, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
-				GroupTransparency = 0
-			}):Play()
-		else
-			setSpringPosGoal(UDim2.new(0.018, 0, 0.968, 0))
-		end
-		print(vel)
-	end
+	--MenuDrag.DragEnded = function(vel)
+	--	if math.abs(vel.Y) > 2 then
+	--		-- Menu closing animation
+	--		TweenService:Create(menu, TweenInfo.new(2, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
+	--			AnchorPoint = Vector2.new(0.5, 0.5)
+	--		}):Play()
+	--		springing = true
+	--		setSpringPosGoal(UDim2.fromScale(0.5, 0.1))
+	--		setSpringSizeGoal(UDim2.fromOffset(60, 60))
+	--		--script.Parent.ZIndex = script.Parent.ZIndex - 2
+	--		menu.CanvasGroup.Visible = true
+	--		TweenService:Create(menu.CanvasGroup, TweenInfo.new(0.5, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
+	--			GroupTransparency = 0
+	--		}):Play()
+	--	else
+	--		--setSpringPosGoal(UDim2.new(0.018, 0, 0.968, 0))
+	--	end
+	--	print(vel)
+	--end
 	
 	-- Opener button behavior
 	menu.CanvasGroup.Opener.MouseButton1Click:Connect(function()
@@ -3278,7 +2570,7 @@ local function THBUHLS_fake_script() -- Fake Script: StarterGui.YARHM.Menu.Close
 			AnchorPoint = Vector2.new(0, 1)
 		}):Play()
 	
-		setSpringPosGoal(UDim2.fromScale(0.018, 0.968))
+		setSpringPosGoal(lastPos)
 		setSpringSizeGoal(UDim2.fromOffset(441, 268))
 		--script.Parent.ZIndex = script.Parent.ZIndex + 2
 		local closing = TweenService:Create(menu.CanvasGroup, TweenInfo.new(0.5, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
@@ -3293,7 +2585,7 @@ local function THBUHLS_fake_script() -- Fake Script: StarterGui.YARHM.Menu.Close
 	task.wait(1)
 	springing = true
 end
-local function PBRDN_fake_script() -- Fake Script: StarterGui.YARHM.Flee the Facility
+local function XEUCQLX_fake_script() -- Fake Script: StarterGui.YARHM.Flee the Facility
     local script = Instance.new("LocalScript")
     script.Name = "Flee the Facility"
     script.Parent = Converted["_YARHM"]
@@ -3507,7 +2799,7 @@ local function PBRDN_fake_script() -- Fake Script: StarterGui.YARHM.Flee the Fac
 		}
 		} 
 	}
-	module[3] = { -- spacing, button grid doesnt correctly height himself for some reason
+	module[3] = { -- spacing, button grid doesnt correctly height itself for some reason
 		Type = "Text",
 		Args = {""}
 	}
@@ -3603,7 +2895,7 @@ local function PBRDN_fake_script() -- Fake Script: StarterGui.YARHM.Flee the Fac
 	
 	_G.Modules[2] = module
 end
-local function AYCOCT_fake_script() -- Fake Script: StarterGui.YARHM.Murder Mystery 2
+local function SWTC_fake_script() -- Fake Script: StarterGui.YARHM.Murder Mystery 2
     local script = Instance.new("LocalScript")
     script.Name = "Murder Mystery 2"
     script.Parent = Converted["_YARHM"]
@@ -3639,19 +2931,32 @@ local function AYCOCT_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myst
 	
 	local fu = require(_G.YARHM.FUNCTIONS)
 	
-	local fadeEvent = game.ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("Gameplay"):WaitForChild("Fade", 5)
-	if fadeEvent then
-		fadeEvent.OnClientEvent:Connect(function(data)
+	if not game.ReplicatedStorage:WaitForChild("Remotes", 10) then
+		fu.dialog("Not MM2", "Looks like this game isn't MM2. Do you want to load the module anyway?", {"Load", "No"})
+	
+		if fu.waitfordialog() == "No" then
+			fu.closedialog()
+			fu.notification("MM2 will not be loaded until you rejoin.")
+			return
+		end	
+		fu.closedialog()
+	else
+		game.ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("Gameplay"):WaitForChild("PlayerDataChanged", 5).OnClientEvent:Connect(function(data)
 			playerData = data
 		end)
 	end
 	
-	local UpdatePlayerDataEvent = game.ReplicatedStorage:WaitForChild("UpdatePlayerData", 5)
-	if UpdatePlayerDataEvent then
-		UpdatePlayerDataEvent.OnClientEvent:Connect(function(data)
-			playerData = data
-		end)
-	end
+	local onTesting = game.GameId == 119460199
+	
+	--if game.ReplicatedStorage:WaitForChild("UpdatePlayerData", 1) then
+	--	local UpdatePlayerDataEvent = game.ReplicatedStorage:WaitForChild("UpdatePlayerData", 5)
+	--	if UpdatePlayerDataEvent then
+	--		UpdatePlayerDataEvent.OnClientEvent:Connect(function(data)
+	--			playerData = data
+	--		end)
+	--	end
+	--end
+	
 	
 	
 	local function findMurderer()
@@ -3671,7 +2976,7 @@ local function AYCOCT_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myst
 			end
 		end
 	
-		if playerData then
+		if #playerData > 0 then
 			for player, data in playerData do
 				if data.Role == "Murderer" then
 					if game.Players:FindFirstChild(player) then
@@ -3701,7 +3006,7 @@ local function AYCOCT_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myst
 		end
 	
 		
-		if playerData then
+		if #playerData > 0 then
 			for player, data in playerData do
 				if data.Role == "Sheriff" then
 					if game.Players:FindFirstChild(player) then
@@ -3774,7 +3079,7 @@ local function AYCOCT_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myst
 	-- I honestly don't know what went wrong so if any of you experts know why this stuff aint working make a pull request :praying_hands_emoji:
 	
 	
-	module["Name"] = "Murder Mystery 2"
+	module["Name"] = "Summer MM2"
 	
 	-- Player ESP
 	workspace.ChildAdded:Connect(function(ch)
@@ -3822,43 +3127,45 @@ local function AYCOCT_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myst
 		if ch.Name == "Normal" and playerESP then
 			fu.notification("Game ended, removing Player ESPs.")
 			playerData = {}
-			for _, v in ipairs(script.Parent:GetChildren()) do if v.Name == "PlayerESP" then v:Destroy() end end
 			if _G.YARHM:FindFirstChild("AppliedMurdererBGUI") then _G.YARHM:FindFirstChild("AppliedMurdererBGUI"):Destroy() end
 			if _G.YARHM:FindFirstChild("DGBGUIClone") then _G.YARHM:FindFirstChild("DGBGUIClone"):Destroy() end
+			for _, v in ipairs(script.Parent:GetChildren()) do if v.Name == "PlayerESP" then v:Destroy() end end
+			
 		end
 	end)
 	
 	-- Dropped Gun ESP
-	workspace.ChildAdded:Connect(function(ch)
+	workspace.DescendantAdded:Connect(function(ch)
 		if script.Parent:FindFirstChild("GunESP") and ch.Name == "GunDrop" then
 			script.Parent:FindFirstChild("GunESP").Adornee = ch
 			script.Parent:FindFirstChild("GunESP").Enabled = true
 			local bguiclone = script.Parent.DroppedGunBGUI:Clone()
 			bguiclone.Parent = script.Parent
-			bguiclone.Adornee = workspace:FindFirstChild("GunDrop")
+			bguiclone.Adornee = ch
 			bguiclone.Enabled = true
 			bguiclone.Name = "DGBGUIClone"
 			fu.notification("Gun has been dropped! Find a yellow highlight.")
 			if autoGetDroppedGun then
 				fu.notification("Auto get dropped gun - Cooling down...")
 				task.wait(1)
-				if not workspace:FindFirstChild("GunDrop") then fu.notification("No dropped gun to be teleported to.") return end
+				if not workspace.Normal:FindFirstChild("GunDrop") then fu.notification("No dropped gun to be teleported to.") return end
 				local previousPosition = localplayer.Character:GetPivot()
-				localplayer.Character:MoveTo(workspace:FindFirstChild("GunDrop").Position)
+				localplayer.Character:MoveTo(ch)
 				localplayer.Backpack.ChildAdded:Wait()
 				localplayer.Character:PivotTo(previousPosition)
 			end
 		end
 	end)
 	
-	workspace.ChildRemoved:Connect(function(ch)
+	workspace.DescendantRemoving:Connect(function(ch)
 		if script.Parent:FindFirstChild("GunESP") and ch.Name == "GunDrop" then
 			script.Parent:FindFirstChild("GunESP").Enabled = false
 			if script.Parent:FindFirstChild("DGBGUIClone") then
 				script.Parent:FindFirstChild("DGBGUIClone"):Destroy()
 			end
 			fu.notification("Someone has took the dropped gun.")
-			fu.notification("The hero is " .. findSheriff().DisplayName .. ".")
+			task.wait(1)
+			fu.notification("The hero is " .. findSheriff().Name .. ".")
 			if script.Parent:FindFirstChild("PlayerESP") then
 				for _, v in ipairs(script.Parent:GetChildren()) do
 					if v:IsA("Highlight") then
@@ -3917,77 +3224,11 @@ local function AYCOCT_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myst
 							--localplayer.Character:MoveTo(Vector3.new(closestCoin:GetPivot().X, closestCoin:GetPivot().Y, closestCoin:GetPivot().Z))
 							claimedCoins[closestCoin] = true
 						end
-						
-						--for _, coin in ipairs(workspace:FindFirstChild("Normal"):FindFirstChild("CoinContainer"):GetChildren()) do
-						--	if claimedCoins[coin] then continue end
-						--	if not coin then continue end
-						--	local coinPosition = coin.Position
-						--	--if (coinPosition - localplayer.Character:GetPivot().Position).Magnitude > 30 then return end
-						--	--local characterRootPart = localplayer.Character.HumanoidRootPart
-						--	--local rayDirection = coinPosition * 3
-	
-						--	--local raycastParams = RaycastParams.new()
-						--	--raycastParams.FilterType = Enum.RaycastFilterType.Exclude
-						--	--raycastParams.FilterDescendantsInstances = {localplayer.Character}
-	
-						--	--local hit = workspace:Raycast(characterRootPart.Position, rayDirection, raycastParams)
-	
-						--	--if not hit or hit.Instance == coin then -- Check if nothing collides or if it collides with the coin
-						--	if not localplayer.Character:FindFirstChild("HumanoidRootPart") then continue end
-						--	local tocoin = ts:Create(localplayer.Character:FindFirstChild("HumanoidRootPart"), TweenInfo.new(0.2), {
-						--		CFrame = coin:GetPivot()
-						--	})
-						--	tocoin:Play()
-						--	tocoin.Completed:Wait()
-						--	task.wait(0.3)
-						--	--localplayer.Character:MoveTo(Vector3.new(coin:GetPivot().X, coin:GetPivot().Y, coin:GetPivot().Z))
-						--	claimedCoins[coin] = true
-						--	--end
-	
-						--	if not coinAutoCollect then
-						--		break
-						--	end
-						--end
 					end
 				end
 			end
 		end
 	)
-	
-	--local positionHistory = {}
-	--local velocityHistory = {}
-	--local historySize = 10  -- Number of past positions/velocities to consider
-	
-	--local function resetHistory()
-	--	positionHistory = {}
-	--	velocityHistory = {}
-	--end
-	
-	--local function updateHistory(character)
-	--	if not character then return end
-	--	local hrp = character:FindFirstChild("HumanoidRootPart")
-	--	if not hrp then return end
-	
-	--	-- Update position history
-	--	table.insert(positionHistory, hrp.Position)
-	--	if #positionHistory > historySize then
-	--		table.remove(positionHistory, 1)
-	--	end
-	
-	--	-- Update velocity history
-	--	table.insert(velocityHistory, hrp.AssemblyLinearVelocity)
-	--	if #velocityHistory > historySize then
-	--		table.remove(velocityHistory, 1)
-	--	end
-	--end
-	
-	--local function averageVelocity()
-	--	local total = Vector3.new(0, 0, 0)
-	--	for _, v in ipairs(velocityHistory) do
-	--		total = total + v
-	--	end
-	--	return total / #velocityHistory
-	--end
 	
 	local function getPredictedPosition(player, shootOffset)
 		pcall(function()
@@ -4087,10 +3328,11 @@ local function AYCOCT_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myst
 						local args = {
 							[1] = 1,
 							[2] = predictedPosition,
-							[3] = "AH"
+							[3] = "AH2"
 						}
 	
-						localplayer.Character.Gun.KnifeServer.ShootGun:InvokeServer(unpack(args))
+	
+						localplayer.Character.Gun.KnifeLocal.CreateBeam.RemoteFunction:InvokeServer(unpack(args))
 					end
 				until findSheriff() ~= localplayer or not autoShooting
 			end
@@ -4110,8 +3352,9 @@ local function AYCOCT_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myst
 			Players = function()
 				if script.Parent:FindFirstChild("PlayerESP") then
 					playerESP = false
-					for _, i in ipairs(script.Parent:GetChildren()) do if i.Name=="PlayerESP" then i:Destroy() end end
-					for _, i in ipairs(script.Parent:GetChildren()) do if i.Name=="DGBGUIClone" then i:Destroy() end end	
+					if _G.YARHM:FindFirstChild("AppliedMurdererBGUI") then _G.YARHM:FindFirstChild("AppliedMurdererBGUI"):Destroy() end
+					if _G.YARHM:FindFirstChild("DGBGUIClone") then _G.YARHM:FindFirstChild("DGBGUIClone"):Destroy() end
+					for _, v in ipairs(script.Parent:GetChildren()) do if v.Name == "PlayerESP" then v:Destroy() end end
 				else
 					playerESP = true
 					if not findMurderer() or not findSheriff() then
@@ -4165,12 +3408,12 @@ local function AYCOCT_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myst
 					gunesp.Name = "GunESP"
 					gunesp.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
 					gunesp.Enabled = false
-					if workspace:FindFirstChild("GunDrop") then
-						gunesp.Adornee = workspace:FindFirstChild("GunDrop")
+					if workspace.Normal:FindFirstChild("GunDrop") then
+						gunesp.Adornee = workspace.Normal:FindFirstChild("GunDrop")
 						gunesp.Enabled = true
 						local bguiclone = script.Parent.DroppedGunBGUI:Clone()
 						bguiclone.Parent = script.Parent
-						bguiclone.Adornee = workspace:FindFirstChild("GunDrop")
+						bguiclone.Adornee = workspace.Normal:FindFirstChild("GunDrop")
 						bguiclone.Enabled = true
 						bguiclone.Name = "DGBGUIClone"
 						fu.notification("Gun has been dropped! Find a yellow highlight.")
@@ -4231,61 +3474,93 @@ local function AYCOCT_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myst
 			local args = {
 				[1] = 1,
 				[2] = predictedPosition,
-				[3] = "AH"
+				[3] = "AH2"
 			}
-			localplayer.Character.Gun.KnifeServer.ShootGun:InvokeServer(unpack(args))
+	
+	
+			localplayer.Character.Gun.KnifeLocal.CreateBeam.RemoteFunction:InvokeServer(unpack(args))
 		end,}
 	})
 	
 	
+	table.insert(module, {
+    Type = "Button",
+    Args = {"Blink Shoot Murderer", function(Self)
+        if findSheriff() ~= localplayer then 
+            fu.notification("You're not sheriff/hero.") 
+            return 
+        end
+
+        local murderer = findMurderer()
+        if not murderer then
+            fu.notification("No murderer to shoot.")
+            return
+        end
+
+        if not localplayer.Character:FindFirstChild("Gun") then
+            local hum = localplayer.Character:FindFirstChild("Humanoid")
+            if localplayer.Backpack:FindFirstChild("Gun") then
+                hum:EquipTool(localplayer.Backpack:FindFirstChild("Gun"))
+            else
+                fu.notification("You don't have the gun..?")
+                return
+            end
+        end
+
+        local murdererHRP = murderer.Character:FindFirstChild("HumanoidRootPart")
+        if not murdererHRP then
+            fu.notification("Could not find the murderer's HumanoidRootPart.")
+            return
+        end
+
+        -- Helper function to calculate a safe teleport position behind the murderer
+        local function getSafeTeleportPosition(targetPosition)
+            local distanceBehind = 10
+            local backPosition = targetPosition * CFrame.new(0, 0, distanceBehind).p
+
+            -- Raycast to ensure the back position is not outside the map
+            local rayOrigin = targetPosition.p
+            local rayDirection = (backPosition - rayOrigin).unit * distanceBehind
+            local ray = Ray.new(rayOrigin, rayDirection)
+            local hitPart, hitPosition = workspace:FindPartOnRay(ray, localplayer.Character, false, true)
+
+            if hitPart then
+                -- If a wall is detected, teleport to the hit position instead
+                return CFrame.new(hitPosition)
+            else
+                -- If no wall is detected, teleport to the back position
+                return CFrame.new(backPosition)
+            end
+        end
+
+        -- Store the original position of the sheriff
+        local originalPosition = localplayer.Character.HumanoidRootPart.CFrame
+
+        -- Calculate safe teleport position behind the murderer
+        local safeTeleportPosition = getSafeTeleportPosition(murdererHRP.CFrame)
+
+        -- Teleport the sheriff to the safe position
+        localplayer.Character.HumanoidRootPart.CFrame = safeTeleportPosition
+
+        -- Shoot the murderer
+        local predictedPosition = getPredictedPosition(murderer, shootOffset)
+
+        local args = {
+            [1] = 1,
+            [2] = predictedPosition,
+            [3] = "AH2"
+        }
+
+        localplayer.Character.Gun.KnifeLocal.CreateBeam.RemoteFunction:InvokeServer(unpack(args))
+
+        -- Immediately teleport the sheriff back to the original position
+        localplayer.Character.HumanoidRootPart.CFrame = originalPosition
+    end,}
+})
+
 	
 	
-	--table.insert(module, {
-	--	Type = "Button",
-	--	Args = {"Throw knife to closest player", function(Self)
-	--		if findMurderer() ~= localplayer then 
-	--			fu.notification("You're not murderer.") 
-	--			return 
-	--		end
 	
-	--		if not localplayer.Character:FindFirstChild("Knife") then
-	--			local hum = localplayer.Character:FindFirstChild("Humanoid")
-	--			if localplayer.Backpack:FindFirstChild("Knife") then
-	--				hum:EquipTool(localplayer.Backpack:FindFirstChild("Knife"))
-	--			else
-	--				fu.notification("You don't have the knife.")
-	--				return
-	--			end
-	--		end
-			
-	--		local closestPlayer = findNearestPlayer()
-	--		if not closestPlayer then
-	--			fu.notification("No player found to throw at.")
-	--			return
-	--		end
-			
-	
-	--		local closestPlayerHRP = closestPlayer.Character:FindFirstChild("HumanoidRootPart")
-	--		if not closestPlayerHRP then
-	--			fu.notification("Could not find the closest player's HumanoidRootPart.")
-	--			return
-	--		end
-			
-	--		local lpknife = localplayer.Backpack:FindFirstChild("Knife")
-	--		if not lpknife then
-	--			fu.notification("You don't have the knife.")
-	--		end
-	
-	--		--local predictedPosition = getPredictedPosition(closestPlayer, shootOffset * 2.5)
-	
-	--		local args = {
-	--			[1] = lpknife:GetPivot(), 
-	--			[2] = closestPlayerHRP.Position
-	--		}
-	
-	--		localplayer.Character.Knife.Throw:FireServer(unpack(args))
-	--	end,}
-	--})
 	
 	
 	table.insert(module, {
@@ -4307,6 +3582,30 @@ local function AYCOCT_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myst
 	table.insert(module, {
 		Type = "Text",
 		Args = {"Shoot offset re-aims the gun/knife shoot/throw to the character's predicted position. Recommended is 2.8"}
+	})
+	
+	table.insert(module, {
+		Type = "Button",
+		Args = {"Copy sheriff/hero's name to clipboard", function()
+			if not findSheriff() then
+				fu.notification("No sheriff/hero to copy.")
+				return
+			end
+			if setclipboard then setclipboard(findSheriff().Name) end
+			fu.notification("Copied to clipboard.")
+		end,}
+	})
+	
+	table.insert(module, {
+		Type = "Button",
+		Args = {"Copy murderer's name to clipboard", function()
+			if not findMurderer() then
+				fu.notification("No murderer to copy.")
+				return
+			end
+			if setclipboard then setclipboard(findMurderer().Name) end
+			fu.notification("Copied to clipboard.")
+		end,}
 	})
 	
 	table.insert(module, {
@@ -4358,10 +3657,11 @@ local function AYCOCT_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myst
 							local args = {
 								[1] = 1,
 								[2] = predictedPosition,
-								[3] = "AH"
+								[3] = "AH2"
 							}
 	
-							localplayer.Character.Gun.KnifeServer.ShootGun:InvokeServer(unpack(args))
+	
+							localplayer.Character.Gun.KnifeLocal.CreateBeam.RemoteFunction:InvokeServer(unpack(args))
 						end
 					until not autoShooting
 				end
@@ -4375,17 +3675,53 @@ local function AYCOCT_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myst
 	
 	table.insert(module, {
 		Type = "Text",
-		Args = {"<font color='#FFFF00'>Premium+</font>"}
+		Args = {"<font color='#FFFF00'>Premium</font>"}
 	})
 	
-		
 	table.insert(module, {
-		Type = "Toggle",
-		Args = {"Automatically get gun on drop", function(Self, state)
-			autoGetDroppedGun = state
-		end,}
+		Type = "Button",
+		Args = {"Teleport to lobby", function(Self)
+			localplayer.Character:MoveTo(Vector3.new(-94.88317108154297, 138.07186889648438, 20.183759689331055))
+		end,}	
 	})
 	
+
+table.insert(module, {
+    Type = "Button",
+    Args = {"Teleport to dropped gun [✓]", function(Self)
+        local function setNoclip(state)
+            for _, part in pairs(localplayer.Character:GetDescendants()) do
+                if part:IsA("BasePart") and part.CanCollide then
+                    part.CanCollide = not state
+                end
+            end
+        end
+
+        if not workspace.Normal:FindFirstChild("GunDrop") then 
+            fu.notification("No dropped gun to be teleported to.") 
+            return 
+        end
+
+        local previousPosition = localplayer.Character:GetPivot()
+
+        -- Enable noclip
+        setNoclip(true)
+
+        -- Teleport to gun drop
+        localplayer.Character:MoveTo(workspace.Normal:FindFirstChild("GunDrop").Position)
+
+        -- Wait for 1 second
+        task.wait(1)
+
+        -- Disable noclip
+        setNoclip(false)
+
+        -- Teleport back to the original position
+        localplayer.Character:PivotTo(previousPosition)
+    end}
+})
+
+
 	table.insert(module, {
 		Type = "Button",
 		Args = {"God mode (Very, VERY UNSTABLE)", function(Self) -- Credits to EdgeIY, Infinite Yield
@@ -4411,64 +3747,6 @@ local function AYCOCT_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myst
 	})
 	
 	
-	--table.insert(module, {
-	--	Type = "Button",
-	--	Args = {"Kill murderer immediately", function()
-	--		if findSheriff() ~= localplayer then fu.notification("You're not sheriff/hero.") return end
-	--		if not findMurderer() then
-	--			fu.notification("No murderer to shoot.")
-	--			return
-	--		end
-	
-	--		if not localplayer.Character:FindFirstChild("Gun") then
-	--			local hum = localplayer.Character:FindFirstChild("Humanoid")
-	--			if localplayer.Backpack:FindFirstChild("Gun") then
-	--				localplayer.Character:FindFirstChild("Humanoid"):EquipTool(localplayer.Backpack:FindFirstChild("Gun"))
-	--			else
-	--				fu.notification("You don't have the gun..?")
-	--				return
-	--			end
-	--		end
-	
-	--		local Murderer = findMurderer()
-	
-	--		if Murderer and Murderer.Character then
-	
-	--			-- Get the HumanoidRootParts
-	--			local localRootPart = localplayer.Character:FindFirstChild("HumanoidRootPart")
-	--			local nearestRootPart = Murderer.Character:FindFirstChild("HumanoidRootPart")
-	
-	--			if localRootPart and nearestRootPart then
-	--				-- Calculate the look vector of the nearest player
-	--				local lookVector = nearestRootPart.CFrame.LookVector
-	
-	--				-- Calculate the offset position behind the nearest player
-	--				local offsetPosition = nearestRootPart.Position - (lookVector * 5) -- 7 studs behind
-	
-	--				-- Teleport the local player to the offset position
-	--				localRootPart.CFrame = CFrame.new(offsetPosition) * CFrame.Angles(0, nearestRootPart.CFrame.Y, 0)
-	--			end
-	--		else
-	--			fu.notification("Can't find a murderer!?")
-	--		end
-	--		task.wait(0.1)
-	--		local murdererHRP = Murderer.Character:FindFirstChild("HumanoidRootPart")
-	--		if not murdererHRP then
-	--			fu.notification("Could not find the murderer's HumanoidRootPart.")
-	--			return
-	--		end
-	
-	--		--local predictedPosition = getPredictedPosition(Murderer, shootOffset)
-	
-	--		local args = {
-	--			[1] = 1,
-	--			[2] = murdererHRP.Position,
-	--			[3] = "AH"
-	--		}
-	
-	--		localplayer.Character.Gun.KnifeServer.ShootGun:InvokeServer(unpack(args))
-	--	end,}
-	--})
 	
 	table.insert(module, {
 		Type = "Button",
@@ -4490,20 +3768,6 @@ local function AYCOCT_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myst
 			if not NearestPlayer or not NearestPlayer.Character then
 				fu.notification("Can't find a player!?")
 				return
-			--	-- Get the HumanoidRootParts
-			--	local localRootPart = localplayer.Character:FindFirstChild("HumanoidRootPart")
-			--	local nearestRootPart = NearestPlayer.Character:FindFirstChild("HumanoidRootPart")
-	
-			--	if localRootPart and nearestRootPart then
-			--		-- Calculate the look vector of the nearest player
-			--		local lookVector = nearestRootPart.CFrame.LookVector
-	
-			--		-- Calculate the offset position behind the nearest player
-			--		local offsetPosition = nearestRootPart.Position - (lookVector) 
-	
-			--		-- Teleport the local player to the offset position
-			--localRootPart.CFrame = CFrame.lookAt(localRootPart.CFrame.Position, nearestRootPart.CFrame.Position) * CFrame.new(offsetPosition)
-			--	end
 			end
 			local nearestHRP = NearestPlayer.Character:FindFirstChild("HumanoidRootPart")
 			if not nearestHRP then
@@ -4548,6 +3812,7 @@ local function AYCOCT_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myst
 	
 		end,}
 	})
+	
 	
 	table.insert(module, {
 		Type = "Button",
@@ -4596,11 +3861,11 @@ local function AYCOCT_fake_script() -- Fake Script: StarterGui.YARHM.Murder Myst
 	})
 	
 	_G.Modules[3] = module
-	
+	fu.refreshlist()
 end
-local function KJQRBS_fake_script() -- Fake Script: StarterGui.YARHM.Universal
+local function QCNBR_fake_script() -- Fake Script: StarterGui.YARHM.Universal
     local script = Instance.new("LocalScript")
-    script.Name = "Universal V2"
+    script.Name = "Universal"
     script.Parent = Converted["_YARHM"]
     local req = require
     local require = function(obj)
@@ -4799,11 +4064,11 @@ local function KJQRBS_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 	
 	table.insert(module, {
 		Type = "Text",
-		Args = {"Welcome to YARHM Elite! The free script hub."}
+		Args = {"Welcome to YARHM Elite+! The free script hub."}
 	})
 	table.insert(module, {
 		Type = "Button",
-		Args = {"Join our Discord", function(Self)
+		Args = {"Join Imperial's Discord", function(Self)
 			if setclipboard then setclipboard("https://discord.gg/2jbYxvDkxr") end
 			fu.notification('Discord link has been copied to clipboard!')
 		end,}
@@ -5558,7 +4823,7 @@ local function KJQRBS_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 	
 	table.insert(module, {
 		Type = "Button",
-		Args = {"Hide YARHM Elite+", function(Self)
+		Args = {"Hide YARHM", function(Self)
 			if uis.KeyboardEnabled then
 				ts:Create(script.Parent.Menu.UIScale, TweenInfo.new(0.6, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
 					Scale = 0
@@ -5630,12 +4895,12 @@ local function KJQRBS_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 			end
 		end,}
 	})
-
+	
 	local rsloopconnectionfling
 	local clip = true
 	local nocliploop
-
-
+	
+	
 	table.insert(module, {
 		Type = "ButtonGrid",
 		Args = {2, {
@@ -5651,7 +4916,7 @@ local function KJQRBS_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 					end
 				end)
 			end,
-
+	
 			Reclip = function()
 				if clip then return end
 				clip = true
@@ -5659,16 +4924,16 @@ local function KJQRBS_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 				fu.notification("Reclipping may need you to reset your character.")
 			end,
 		}}})
-
-
-
+	
+	
+	
 	table.insert(module, {
 		Type = "Text",
 		Args = {"Other"}
 	})
-
-
-
+	
+	
+	
 	table.insert(module, {
 		Type = "Button",
 		Args = {"Open developer console (debugging)", function(Self)
@@ -5678,7 +4943,7 @@ local function KJQRBS_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 			--ts:Create(_G.YARHM.Open, TweenInfo.new(1, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
 			--	Position = UDim2.fromScale(0.5, 0.903)
 			--}):Play()
-
+	
 			--ts:Create(_G.YARHM.Open.UIStroke, TweenInfo.new(1), {
 			--	Transparency = 1
 			--}):Play()
@@ -5688,7 +4953,7 @@ local function KJQRBS_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 		end}
 	}
 	)
-
+	
 	--table.insert(module, {
 	--	Type = "Button",
 	--	Args = {"SELF-DESTRUCT", function(Self)
@@ -5705,7 +4970,7 @@ local function KJQRBS_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 	--		ts:Create(_G.YARHM.Open, TweenInfo.new(1, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
 	--			Position = UDim2.fromScale(0.5, 0.063)
 	--		}):Play()
-
+	
 	--		ts:Create(_G.YARHM.Open.UIStroke, TweenInfo.new(1), {
 	--			Transparency = 1
 	--		}):Play()
@@ -5714,23 +4979,23 @@ local function KJQRBS_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 	--		}):Play()
 	--	end}
 	--}
-
+	
 	_G.Modules[1] = module
 end
 
-coroutine.wrap(DOUA_fake_script)()
-coroutine.wrap(BQRSXUT_fake_script)()
-coroutine.wrap(IQAA_fake_script)()
-coroutine.wrap(UQYYYWR_fake_script)()
-coroutine.wrap(ABXU_fake_script)()
-coroutine.wrap(VMDKWQV_fake_script)()
-coroutine.wrap(NQKTS_fake_script)()
-coroutine.wrap(ZYXQCPD_fake_script)()
-coroutine.wrap(TQOVGPZ_fake_script)()
-coroutine.wrap(JLRNWW_fake_script)()
-coroutine.wrap(QJSKRJ_fake_script)()
-coroutine.wrap(DWGMFU_fake_script)()
-coroutine.wrap(THBUHLS_fake_script)()
-coroutine.wrap(PBRDN_fake_script)()
-coroutine.wrap(AYCOCT_fake_script)()
-coroutine.wrap(KJQRBS_fake_script)()
+coroutine.wrap(EVEXG_fake_script)()
+coroutine.wrap(BGSB_fake_script)()
+coroutine.wrap(ACWKM_fake_script)()
+coroutine.wrap(OORS_fake_script)()
+coroutine.wrap(BGOJG_fake_script)()
+coroutine.wrap(NRXD_fake_script)()
+coroutine.wrap(HVIQD_fake_script)()
+coroutine.wrap(JKKT_fake_script)()
+coroutine.wrap(LHKF_fake_script)()
+coroutine.wrap(EMTTMGQ_fake_script)()
+coroutine.wrap(JYFQBDS_fake_script)()
+coroutine.wrap(TTSMCL_fake_script)()
+coroutine.wrap(VZYVYS_fake_script)()
+coroutine.wrap(XEUCQLX_fake_script)()
+coroutine.wrap(SWTC_fake_script)()
+coroutine.wrap(QCNBR_fake_script)()
