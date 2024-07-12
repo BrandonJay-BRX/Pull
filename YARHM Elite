@@ -5015,32 +5015,95 @@ local function HERR_fake_script() -- Fake Script: StarterGui.YARHM.Universal
 		end}
 	}
 	)
+
+local tagsFolder = Instance.new("Folder", script.Parent)
+	tagsFolder.Name = "TagsFolder"
 	
-	--table.insert(module, {
-	--	Type = "Button",
-	--	Args = {"SELF-DESTRUCT", function(Self)
-	--		fu.notification("See you later!")
-	--		task.wait(1.5)
-	--		script.Parent:Destroy() -- Scary!
-	--	end}
-	--}
-	--)
-	--	Type = "Button",
-	--	Args = {"Move YARHM trigger to the top", function(Self)
-	--		_G.YARHM.Open.UIStroke.Transparency = 0
-	--		_G.YARHM.Open.TextTransparency = 0
-	--		ts:Create(_G.YARHM.Open, TweenInfo.new(1, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {
-	--			Position = UDim2.fromScale(0.5, 0.063)
-	--		}):Play()
+	local Players = game:GetService("Players")
 	
-	--		ts:Create(_G.YARHM.Open.UIStroke, TweenInfo.new(1), {
-	--			Transparency = 1
-	--		}):Play()
-	--		ts:Create(_G.YARHM.Open, TweenInfo.new(1), {
-	--			TextTransparency = 1
-	--		}):Play()
-	--	end}
-	--}
+	-- Customize these with your own usernames and developers
+	local usernameColors = {
+		["givepetroblox"] = Color3.fromHex("#ff0000"),
+	}
+	
+	local specialUsernameColors = {
+		["heyprestonitsme"] = Color3.fromHex("#ffac33"),
+	}
+	
+	local mainText = "YARHM Elite+ Developer"
+	local mainFont = Enum.Font.GothamBold
+	local specialText = "YARHM Elite+"
+	local specialFont = Enum.Font.GothamBold
+	
+	local function createTextLabel(player, text, color)
+		local head = player.Character and player.Character:FindFirstChild("Head")
+		if head then
+			-- Remove any existing tags to avoid duplicates
+			local existingTag = head:FindFirstChild("DeveloperTag") or head:FindFirstChild("SpecialTag")
+			if existingTag then
+				existingTag:Destroy()
+			end
+	
+			local mainTextLabel = Instance.new("BillboardGui")
+			mainTextLabel.Parent = tagsFolder
+			mainTextLabel.Name = text == mainText and "DeveloperTag" or "SpecialTag"
+			mainTextLabel.Size = UDim2.new(5, 0, 1, 0)
+			mainTextLabel.StudsOffset = Vector3.new(0, 2, 0)
+			mainTextLabel.Adornee = head
+			mainTextLabel.AlwaysOnTop = false
+			mainTextLabel.MaxDistance = math.huge
+			mainTextLabel.LightInfluence = 0
+			if player.Name == "givepetroblox" then
+				mainTextLabel.Brightness = 5
+			end
+	
+			local mainTextElement = Instance.new("TextLabel")
+			mainTextElement.Size = UDim2.new(1, 0, 1, 0)
+			mainTextElement.Text = text
+			mainTextElement.TextColor3 = color
+			mainTextElement.BackgroundTransparency = 1
+			mainTextElement.Font = mainFont
+			mainTextElement.TextScaled = true
+			mainTextElement.Parent = mainTextLabel
+		end
+	end
+	
+	local function checkForPlayer(player)
+		if usernameColors[player.Name] then
+			createTextLabel(player, mainText, usernameColors[player.Name])
+		elseif specialUsernameColors[player.Name] then
+			createTextLabel(player, specialText, specialUsernameColors[player.Name])
+		end
+	end
+	
+	local function onCharacterAdded(player)
+		player.CharacterAdded:Connect(function(character)
+			-- Wait for 10 seconds before reapplying the tag
+			task.wait(10)
+			checkForPlayer(player)
+		end)
+	end
+	
+	local function handlePlayer(player)
+		checkForPlayer(player)
+		onCharacterAdded(player)
+	end
+	
+	for _, player in ipairs(Players:GetPlayers()) do
+		handlePlayer(player)
+	end
+	
+	Players.PlayerAdded:Connect(handlePlayer)
+	
+	table.insert(module, {
+		Type = "Toggle",
+		Args = {"Hide YARHM Elite+/Developer tags", function(Self, state)
+			for _, tag in ipairs(tagsFolder:GetChildren()) do
+				tag.Enabled = not state
+			end
+		end,}
+	})
+	
 	
 	_G.Modules[1] = module
 end
