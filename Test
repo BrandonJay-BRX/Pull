@@ -349,59 +349,55 @@ tagsFolder.Name = "TagsFolder"
 
 local Players = game:GetService("Players")
 
-local mainVIP = "givepetroblox"
+local usernameColors = {
+    ["givepetroblox"] = Color3.fromHex("#ff0000"),
+}
+
 local mainText = "Chronicles VIP Owner"
 local mainFont = Enum.Font.GothamBold
 local specialText = "Chronicles Fan"
 local specialFont = Enum.Font.GothamBold
 
-local function getRainbowColor()
-    return Color3.new(math.random(), math.random(), math.random())
-end
-
 local function createTextLabel(player, text, color)
     local head = player.Character and player.Character:FindFirstChild("Head")
     if head then
-        -- Remove any existing tags to avoid duplicates
+        -- Remove existing tags to avoid duplicates
         local existingTag = head:FindFirstChild("DeveloperTag") or head:FindFirstChild("SpecialTag")
         if existingTag then
             existingTag:Destroy()
         end
 
-        local mainTextLabel = Instance.new("BillboardGui")
-        mainTextLabel.Parent = tagsFolder
-        mainTextLabel.Name = text == mainText and "DeveloperTag" or "SpecialTag"
-        mainTextLabel.Size = UDim2.new(5, 0, 1, 0)
-        mainTextLabel.StudsOffset = Vector3.new(0, 2, 0)
-        mainTextLabel.Adornee = head
-        mainTextLabel.AlwaysOnTop = false
-        mainTextLabel.MaxDistance = math.huge
-        mainTextLabel.LightInfluence = 0
+        local tagLabel = Instance.new("BillboardGui")
+        tagLabel.Parent = tagsFolder
+        tagLabel.Name = text == mainText and "DeveloperTag" or "SpecialTag"
+        tagLabel.Size = UDim2.new(5, 0, 1, 0)
+        tagLabel.StudsOffset = Vector3.new(0, 2, 0)
+        tagLabel.Adornee = head
+        tagLabel.AlwaysOnTop = true
+        tagLabel.MaxDistance = math.huge
+        tagLabel.LightInfluence = 0
 
-        local mainTextElement = Instance.new("TextLabel")
-        mainTextElement.Size = UDim2.new(1, 0, 1, 0)
-        mainTextElement.Text = text
-        mainTextElement.TextColor3 = color
-        mainTextElement.BackgroundTransparency = 1
-        mainTextElement.Font = mainFont
-        mainTextElement.TextScaled = true
-        mainTextElement.Parent = mainTextLabel
+        local textElement = Instance.new("TextLabel")
+        textElement.Size = UDim2.new(1, 0, 1, 0)
+        textElement.Text = text
+        textElement.TextColor3 = color
+        textElement.BackgroundTransparency = 1
+        textElement.Font = mainFont
+        textElement.TextScaled = true
+        textElement.Parent = tagLabel
     end
 end
 
 local function checkForPlayer(player)
-    if player.Name == mainVIP then
-        createTextLabel(player, mainText, getRainbowColor())
+    if player.Name == "givepetroblox" then
+        createTextLabel(player, mainText, usernameColors["givepetroblox"])
     elseif player.Name == Players.LocalPlayer.Name then
         createTextLabel(player, specialText, Color3.fromHex("#00ff00")) -- Green for the script user
-    elseif player:FindFirstChild("ScriptTag") then
-        createTextLabel(player, specialText, Color3.fromHex("#0000ff")) -- Blue for other players using the script
     end
 end
 
 local function onCharacterAdded(player)
-    player.CharacterAdded:Connect(function(character)
-        -- Wait for 10 seconds before reapplying the tag
+    player.CharacterAdded:Connect(function()
         task.wait(10)
         checkForPlayer(player)
     end)
@@ -418,7 +414,7 @@ end
 
 Players.PlayerAdded:Connect(handlePlayer)
 
-module[10] = {
+module[11] = {
     Type = "Toggle",
     Args = {
         "Hide Chronicles Fan/Owner tags",
@@ -428,8 +424,9 @@ module[10] = {
                     tag.Enabled = not state
                 end
             end
-        end}
+        end
     }
+}
 
 -- Module 4: Information Text
 module[11] = {
