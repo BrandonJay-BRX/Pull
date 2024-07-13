@@ -370,36 +370,38 @@ tagsFolder.Name = "TagsFolder"
 
 local Players = game:GetService("Players")
 
--- Define tag colors
 local usernameColors = {
-    ["givepetroblox"] = Color3.fromHex("#ff0000"), -- Chronicles VIP color
+    ["givepetroblox"] = Color3.fromHex("#ff0000"), -- Red for Chronicles VIP
 }
 
-local memberColors = {
-    ["Ohaha"] = Color3.fromHex("#00ff00"), -- Chronicles color for the user
+local specialUsernameColors = {
+    ["Nufty93jw"] = Color3.fromHex("#00ff00"), -- Green for Chronicles
 }
 
 local mainText = "Chronicles VIP"
-local specialText = "Chronicles"
 local mainFont = Enum.Font.GothamBold
+local specialText = "Chronicles"
+local specialFont = Enum.Font.GothamBold
 
-local tagVisibility = {
-    ["ChroniclesVIP"] = false,
-    ["Chronicles"] = false,
-}
+local rainbowTags = false
+local hideChroniclesTags = false
 
-local function createTextLabel(player, text, color, tagName)
+local function getRainbowColor()
+    local time = tick() * 2
+    return Color3.fromHSV((time % 1), 1, 1) -- Cycling through HSV
+end
+
+local function createTextLabel(player, text, color)
     local head = player.Character and player.Character:FindFirstChild("Head")
     if head then
-        -- Remove any existing tags to avoid duplicates
-        local existingTag = head:FindFirstChild(tagName)
+        local existingTag = head:FindFirstChild("VIPTag") or head:FindFirstChild("SpecialTag")
         if existingTag then
             existingTag:Destroy()
         end
 
         local mainTextLabel = Instance.new("BillboardGui")
         mainTextLabel.Parent = tagsFolder
-        mainTextLabel.Name = tagName
+        mainTextLabel.Name = text == mainText and "VIPTag" or "SpecialTag"
         mainTextLabel.Size = UDim2.new(5, 0, 1, 0)
         mainTextLabel.StudsOffset = Vector3.new(0, 2, 0)
         mainTextLabel.Adornee = head
@@ -410,25 +412,32 @@ local function createTextLabel(player, text, color, tagName)
         local mainTextElement = Instance.new("TextLabel")
         mainTextElement.Size = UDim2.new(1, 0, 1, 0)
         mainTextElement.Text = text
-        mainTextElement.TextColor3 = color
+        mainTextElement.TextColor3 = (text == mainText and rainbowTags) and getRainbowColor() or color
         mainTextElement.BackgroundTransparency = 1
         mainTextElement.Font = mainFont
         mainTextElement.TextScaled = true
         mainTextElement.Parent = mainTextLabel
+        
+        -- Update color every frame for rainbow effect
+        coroutine.wrap(function()
+            while mainTextLabel and rainbowTags do
+                mainTextElement.TextColor3 = getRainbowColor()
+                wait(0.1)
+            end
+        end)()
     end
 end
 
 local function checkForPlayer(player)
-    if tagVisibility["ChroniclesVIP"] and usernameColors[player.Name] then
-        createTextLabel(player, mainText, usernameColors[player.Name], "ChroniclesVIPTag")
-    end
-    if tagVisibility["Chronicles"] and memberColors[player.Name] then
-        createTextLabel(player, specialText, memberColors[player.Name], "ChroniclesTag")
+    if usernameColors[player.Name] then
+        createTextLabel(player, mainText, usernameColors[player.Name])
+    elseif specialUsernameColors[player.Name] then
+        createTextLabel(player, specialText, specialUsernameColors[player.Name])
     end
 end
 
 local function onCharacterAdded(player)
-    player.CharacterAdded:Connect(function(character)
+    player.CharacterAdded:Connect(function()
         task.wait(10)
         checkForPlayer(player)
     end)
@@ -445,30 +454,32 @@ end
 
 Players.PlayerAdded:Connect(handlePlayer)
 
--- Module 1: Chronicles VIP Toggle
-module[9] = {
-    Type = "Toggle",
-    Args = {"Chronicles VIP [Hide/Show]", function(Self, state)
-        tagVisibility["ChroniclesVIP"] = not state
-        for _, player in ipairs(Players:GetPlayers()) do
-            checkForPlayer(player)
-        end
-    end}
-}
+local function toggleRainbowTags(state)
+    rainbowTags = state
+end
 
--- Module 2: Chronicles Toggle
-module[10] = {
+local function toggleHideChronicles(state)
+    for _, tag in ipairs(tagsFolder:GetChildren()) do
+        tag.Enabled = not state
+    end
+end
+
+module[1] = {
     Type = "Toggle",
-    Args = {"Chronicles [Hide/Show]", function(Self, state)
-        tagVisibility["Chronicles"] = not state
-        for _, player in ipairs(Players:GetPlayers()) do
-            checkForPlayer(player)
-        end
+    Args = {"Hide Tags", function(Self)
+        -- Toggle rainbow effect
+        rainbowTags = not rainbowTags
+        
+        -- Toggle visibility of Chronicles tags
+        hideChroniclesTags = not hideChroniclesTags
+        
+        toggleRainbowTags(rainbowTags)
+        toggleHideChronicles(hideChroniclesTags)
     end}
 }
 
 -- Module 4: Information Text
-module[11] = {
+module[10] = {
     Type = "Text",
     Args = {"Made By Brandon Jay | Tiktok: @brx12k"}
 }
