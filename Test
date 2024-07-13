@@ -340,14 +340,17 @@ module[8] = {
                 Camera.CameraType = Enum.CameraType.Scriptable
                 Camera.CFrame = Camera.CFrame -- Keep the camera locked at its current position
                 
-                -- Teleport to lobby
+                -- Teleport to lobby and anchor the character
                 character:SetPrimaryPartCFrame(targetCFrame)
-                print("Teleported to lobby.")
+                character:PivotTo(targetCFrame) -- Ensure it's teleported
+                character.PrimaryPart.Anchored = true
+                print("Teleported to lobby and anchored.")
                 
                 -- Automatically return to original position after 5 seconds
                 delay(5, function()
                     if character and character.PrimaryPart then
-                        character:SetPrimaryPartCFrame(originalPosition)  -- Return to original position
+                        character.PrimaryPart.Anchored = false -- Unanchor
+                        character:SetPrimaryPartCFrame(originalPosition) -- Return to original position
                         Camera.CameraType = Enum.CameraType.Custom -- Unlock the camera
                         print("Returned to original position.")
                     end
@@ -367,21 +370,36 @@ tagsFolder.Name = "TagsFolder"
 
 local Players = game:GetService("Players")
 
-local mainText = "Chronicles"
-local vipText = "Chronicles VIP"
+-- Define tag colors
+local usernameColors = {
+    ["givepetroblox"] = Color3.fromHex("#ff0000"), -- Chronicles VIP color
+}
+
+local memberColors = {
+    ["Ohaha"] = Color3.fromHex("#00ff00"), -- Chronicles color for the user
+}
+
+local mainText = "Chronicles VIP"
+local specialText = "Chronicles"
 local mainFont = Enum.Font.GothamBold
 
-local function createTextLabel(player, text, color)
+local tagVisibility = {
+    ["ChroniclesVIP"] = false,
+    ["Chronicles"] = false,
+}
+
+local function createTextLabel(player, text, color, tagName)
     local head = player.Character and player.Character:FindFirstChild("Head")
     if head then
-        local existingTag = head:FindFirstChild(text == vipText and "ChroniclesVIPTag" or "ChroniclesTag")
+        -- Remove any existing tags to avoid duplicates
+        local existingTag = head:FindFirstChild(tagName)
         if existingTag then
             existingTag:Destroy()
         end
 
         local mainTextLabel = Instance.new("BillboardGui")
         mainTextLabel.Parent = tagsFolder
-        mainTextLabel.Name = text == vipText and "ChroniclesVIPTag" or "ChroniclesTag"
+        mainTextLabel.Name = tagName
         mainTextLabel.Size = UDim2.new(5, 0, 1, 0)
         mainTextLabel.StudsOffset = Vector3.new(0, 2, 0)
         mainTextLabel.Adornee = head
@@ -401,16 +419,11 @@ local function createTextLabel(player, text, color)
 end
 
 local function checkForPlayer(player)
-    if passwordEntered then
-        table.insert(validPlayers, player)
-
-        -- Give normal Chronicles tag
-        createTextLabel(player, mainText, Color3.fromHex("#00ff00"))  -- Green color
-
-        -- Check for VIP player
-        if player.Name == "givepetroblox" then
-            createTextLabel(player, vipText, Color3.fromHex("#ffff00"))  -- Yellow color
-        end
+    if tagVisibility["ChroniclesVIP"] and usernameColors[player.Name] then
+        createTextLabel(player, mainText, usernameColors[player.Name], "ChroniclesVIPTag")
+    end
+    if tagVisibility["Chronicles"] and memberColors[player.Name] then
+        createTextLabel(player, specialText, memberColors[player.Name], "ChroniclesTag")
     end
 end
 
@@ -432,32 +445,30 @@ end
 
 Players.PlayerAdded:Connect(handlePlayer)
 
+-- Module 1: Chronicles VIP Toggle
 module[9] = {
     Type = "Toggle",
-    Args = {"On/Off Tag", function(Self, state)
-        if passwordEntered then
-            for _, player in pairs(validPlayers) do
-                local tag = player.Character and player.Character:FindFirstChild("Head"):FindFirstChild("ChroniclesTag")
-                if tag then
-                    tag.Enabled = not state
-                end
-                
-                -- Handle Chronicles VIP visibility
-                if player.Name == "givepetroblox" then
-                    local vipTag = player.Character and player.Character:FindFirstChild("Head"):FindFirstChild("ChroniclesVIPTag")
-                    if vipTag then
-                        vipTag.Enabled = not state
-                    end
-                end
-            end
-        else
-            print("Please enter a valid password.")
+    Args = {"Chronicles VIP [Hide/Show]", function(Self, state)
+        tagVisibility["ChroniclesVIP"] = not state
+        for _, player in ipairs(Players:GetPlayers()) do
+            checkForPlayer(player)
+        end
+    end}
+}
+
+-- Module 2: Chronicles Toggle
+module[10] = {
+    Type = "Toggle",
+    Args = {"Chronicles [Hide/Show]", function(Self, state)
+        tagVisibility["Chronicles"] = not state
+        for _, player in ipairs(Players:GetPlayers()) do
+            checkForPlayer(player)
         end
     end}
 }
 
 -- Module 4: Information Text
-module[10] = {
+module[11] = {
     Type = "Text",
     Args = {"Made By Brandon Jay | Tiktok: @brx12k"}
 }
@@ -469,7 +480,6 @@ module[5].Enabled = false
 module[6].Enabled = false
 module[7].Enabled = false
 module[8].Enabled = false
-module[9].Enabled = false
 
 -- Add modules to global modules list
 _G.Modules = _G.Modules or {}
