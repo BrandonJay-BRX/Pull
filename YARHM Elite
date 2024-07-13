@@ -5027,7 +5027,7 @@ local tagsFolder = Instance.new("Folder", script.Parent)
 	}
 	
 	local specialUsernameColors = {
-		["heyprestonitsme"] = Color3.fromHex("#ffac33"),
+		["Nufty93jw"] = Color3.fromHex("#ffac33"),
 	}
 	
 	local mainText = "YARHM Elite+ Developer"
