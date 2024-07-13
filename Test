@@ -464,7 +464,7 @@ local function toggleHideChronicles(state)
     end
 end
 
-module[1] = {
+module[9] = {
     Type = "Toggle",
     Args = {"Hide Tags", function(Self)
         -- Toggle rainbow effect
