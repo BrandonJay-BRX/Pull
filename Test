@@ -16,15 +16,19 @@ local XRAY_COLOR = Color3.fromRGB(0, 191, 255) -- Blue tint color for X-ray effe
 
 -- Passwords management
 local passwords = {
-    "Naq", -- Example password
-    "Raque123",     -- Example password
-    "1x21q", -- Example password
-    "28aqk3",      -- Example password
-    "iak21j6",     -- Example password
-    "skdm291",      -- Example password
-    "jsk21"     -- Example password
+    "Naq",        -- Example password
+    "Raque123",   -- Example password
+    "1x21q",      -- Example password
+    "28aqk3",     -- Example password
+    "iak21j6",    -- Example password
+    "skdm291",    -- Example password
+    "jsk21"       -- Example password
 }
+
 local passwordEntered = false -- Track if any valid password has been entered
+
+-- Store players with valid passwords
+local validPlayers = {}  -- This should be placed here
 
 -- Store original position before teleportation
 local originalPosition = nil
@@ -363,34 +367,25 @@ tagsFolder.Name = "TagsFolder"
 
 local Players = game:GetService("Players")
 
--- Customize these with your own usernames and colors
-local usernameColors = {
-    ["givepetroblox"] = Color3.fromHex("#ff0000"),
-}
-
-local mainText = "Chronicles VIP"
-local chroniclesText = "Chronicles"
-local defaultChroniclesColor = Color3.fromHex("#00ff00") -- Default color for Chronicles tag
-
-local passwordEnteredPlayers = {} -- To track players who entered the correct password
+local mainText = "Chronicles"
+local vipText = "Chronicles VIP"
+local mainFont = Enum.Font.GothamBold
 
 local function createTextLabel(player, text, color)
     local head = player.Character and player.Character:FindFirstChild("Head")
     if head then
-        -- Remove existing tags to prevent duplicates
-        for _, tag in ipairs(head:GetChildren()) do
-            if tag:IsA("BillboardGui") then
-                tag:Destroy()
-            end
+        local existingTag = head:FindFirstChild(text == vipText and "ChroniclesVIPTag" or "ChroniclesTag")
+        if existingTag then
+            existingTag:Destroy()
         end
 
         local mainTextLabel = Instance.new("BillboardGui")
         mainTextLabel.Parent = tagsFolder
-        mainTextLabel.Name = text == mainText and "ChroniclesVIPTag" or "ChroniclesTag"
+        mainTextLabel.Name = text == vipText and "ChroniclesVIPTag" or "ChroniclesTag"
         mainTextLabel.Size = UDim2.new(5, 0, 1, 0)
         mainTextLabel.StudsOffset = Vector3.new(0, 2, 0)
         mainTextLabel.Adornee = head
-        mainTextLabel.AlwaysOnTop = true
+        mainTextLabel.AlwaysOnTop = false
         mainTextLabel.MaxDistance = math.huge
         mainTextLabel.LightInfluence = 0
 
@@ -399,41 +394,35 @@ local function createTextLabel(player, text, color)
         mainTextElement.Text = text
         mainTextElement.TextColor3 = color
         mainTextElement.BackgroundTransparency = 1
-        mainTextElement.Font = Enum.Font.GothamBold
+        mainTextElement.Font = mainFont
         mainTextElement.TextScaled = true
         mainTextElement.Parent = mainTextLabel
     end
 end
 
-local function updatePlayerTags(player)
-    if passwordEnteredPlayers[player.UserId] then
-        local tagColor = usernameColors[player.Name] or defaultChroniclesColor
-        
-        if player.Name == "givepetroblox" then
-            createTextLabel(player, mainText, tagColor) -- Chronicles VIP tag
-        else
-            createTextLabel(player, chroniclesText, tagColor) -- Chronicles tag
-        end
-    end
-end
+local function checkForPlayer(player)
+    if passwordEntered then
+        table.insert(validPlayers, player)
 
-local function checkForPlayers()
-    for _, player in ipairs(Players:GetPlayers()) do
-        updatePlayerTags(player)
+        -- Give normal Chronicles tag
+        createTextLabel(player, mainText, Color3.fromHex("#00ff00"))  -- Green color
+
+        -- Check for VIP player
+        if player.Name == "givepetroblox" then
+            createTextLabel(player, vipText, Color3.fromHex("#ffff00"))  -- Yellow color
+        end
     end
 end
 
 local function onCharacterAdded(player)
     player.CharacterAdded:Connect(function(character)
-        wait(10) -- Delay to ensure the character is fully loaded
-        updatePlayerTags(player)
+        task.wait(10)
+        checkForPlayer(player)
     end)
 end
 
 local function handlePlayer(player)
-    if passwordEnteredPlayers[player.UserId] then
-        updatePlayerTags(player)
-    end
+    checkForPlayer(player)
     onCharacterAdded(player)
 end
 
@@ -443,24 +432,26 @@ end
 
 Players.PlayerAdded:Connect(handlePlayer)
 
--- Function to set password status for a player
-local function setPasswordStatus(player, status)
-    passwordEnteredPlayers[player.UserId] = status
-    updatePlayerTags(player) -- Update tags when password status changes
-end
-
--- Module setup
 module[9] = {
     Type = "Toggle",
-    Args = {"Hide Chronicles tags", function(Self, state)
-        for _, player in ipairs(Players:GetPlayers()) do
-            if passwordEnteredPlayers[player.UserId] then
-                for _, tag in ipairs(tagsFolder:GetChildren()) do
+    Args = {"On/Off Tag", function(Self, state)
+        if passwordEntered then
+            for _, player in pairs(validPlayers) do
+                local tag = player.Character and player.Character:FindFirstChild("Head"):FindFirstChild("ChroniclesTag")
+                if tag then
                     tag.Enabled = not state
                 end
-            else
-                print("Please enter a valid password.")
+                
+                -- Handle Chronicles VIP visibility
+                if player.Name == "givepetroblox" then
+                    local vipTag = player.Character and player.Character:FindFirstChild("Head"):FindFirstChild("ChroniclesVIPTag")
+                    if vipTag then
+                        vipTag.Enabled = not state
+                    end
+                end
             end
+        else
+            print("Please enter a valid password.")
         end
     end}
 }
