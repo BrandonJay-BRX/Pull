@@ -7,6 +7,7 @@ local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Camera = workspace.CurrentCamera
 
 -- Variables for X-ray effect
@@ -64,84 +65,22 @@ local function toggleXray(state)
     end
 end
 
-local tagsFolder = Instance.new("Folder", script.Parent)
-	tagsFolder.Name = "TagsFolder"
-	
-	local Players = game:GetService("Players")
-	
-	-- Customize these with your own usernames and developers
-	local usernameColors = {
-		["givepetroblox"] = Color3.fromHex("#ffff00"),
-	}
-	
-	local specialUsernameColors = {
-		["Nufty93jw"] = Color3.fromHex("#8fcf00"),
-	}
-	
-	local mainText = "Chronicles VIP"
-	local mainFont = Enum.Font.GothamBold
-	local specialText = "Chronicles"
-	local specialFont = Enum.Font.GothamBold
-	
-	local function createTextLabel(player, text, color)
-		local head = player.Character and player.Character:FindFirstChild("Head")
-		if head then
-			-- Remove any existing tags to avoid duplicates
-			local existingTag = head:FindFirstChild("DeveloperTag") or head:FindFirstChild("SpecialTag")
-			if existingTag then
-				existingTag:Destroy()
-			end
-	
-			local mainTextLabel = Instance.new("BillboardGui")
-			mainTextLabel.Parent = tagsFolder
-			mainTextLabel.Name = text == mainText and "DeveloperTag" or "SpecialTag"
-			mainTextLabel.Size = UDim2.new(5, 0, 1, 0)
-			mainTextLabel.StudsOffset = Vector3.new(0, 2, 0)
-			mainTextLabel.Adornee = head
-			mainTextLabel.AlwaysOnTop = false
-			mainTextLabel.MaxDistance = math.huge
-			mainTextLabel.LightInfluence = 0
-			if player.Name == "givepetroblox" then
-				mainTextLabel.Brightness = 5
-			end
-	
-			local mainTextElement = Instance.new("TextLabel")
-			mainTextElement.Size = UDim2.new(1, 0, 1, 0)
-			mainTextElement.Text = text
-			mainTextElement.TextColor3 = color
-			mainTextElement.BackgroundTransparency = 1
-			mainTextElement.Font = mainFont
-			mainTextElement.TextScaled = true
-			mainTextElement.Parent = mainTextLabel
-		end
-	end
-	
-	local function checkForPlayer(player)
-		if usernameColors[player.Name] then
-			createTextLabel(player, mainText, usernameColors[player.Name])
-		elseif specialUsernameColors[player.Name] then
-			createTextLabel(player, specialText, specialUsernameColors[player.Name])
-		end
-	end
-	
-	local function onCharacterAdded(player)
-		player.CharacterAdded:Connect(function(character)
-			-- Wait for 10 seconds before reapplying the tag
-			task.wait(10)
-			checkForPlayer(player)
-		end)
-	end
-	
-	local function handlePlayer(player)
-		checkForPlayer(player)
-		onCharacterAdded(player)
-	end
-	
-	for _, player in ipairs(Players:GetPlayers()) do
-		handlePlayer(player)
-	end
-	
-	Players.PlayerAdded:Connect(handlePlayer)
+-- Function to create a BillboardGui
+local function createBillboard(player, text, textColor)
+    local billboard = Instance.new("BillboardGui")
+    billboard.Adornee = player.Character and player.Character:FindFirstChild("Head")
+    billboard.Size = UDim2.new(1, 0, 1, 0)
+    billboard.StudsOffset = Vector3.new(0, 2, 0)
+
+    local label = Instance.new("TextLabel")
+    label.Size = UDim2.new(1, 0, 1, 0)
+    label.Text = text
+    label.TextColor3 = textColor
+    label.BackgroundTransparency = 1
+
+    label.Parent = billboard
+    billboard.Parent = player.Character.Head
+end
 
 -- Module 4: Information Text
 module[1] = {
@@ -200,7 +139,6 @@ module[3] = {
     end}
 }
 
--- Module 3: Hold Everyone Hostages Button
 module[4] = {
     Type = "Button",
     Args = {"Hold Everyone Hostages", function(Self)
@@ -215,6 +153,13 @@ module[4] = {
                         if humanoidRootPart then
                             humanoidRootPart.Anchored = true
                             humanoidRootPart.CFrame = localplayer.Character.HumanoidRootPart.CFrame + localplayer.Character.HumanoidRootPart.CFrame.LookVector * 5
+
+                            -- Check player name and create the BillboardGui
+                            if player.Name == "givepetroblox" then
+                                createBillboard(player, "Chronicles VIP", Color3.fromRGB(255, 255, 0))  -- Yellow
+                            elseif player.Name == "Nufty93jw" then
+                                createBillboard(player, "Chronicles", Color3.fromRGB(0, 255, 0))  -- Green
+                            end
                         end
                     end
                 end
@@ -437,8 +382,8 @@ module[10] = {
 }
 
 -- Initialize Modules as disabled
-module[1].Enabled = false
-module[3].Enabled = false
+module[2].Enabled = false
+module[4].Enabled = false
 module[5].Enabled = false
 module[6].Enabled = false
 module[7].Enabled = false
