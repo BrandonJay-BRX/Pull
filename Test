@@ -65,27 +65,10 @@ local function toggleXray(state)
     end
 end
 
--- Function to create a BillboardGui
-local function createBillboard(player, text, textColor)
-    local billboard = Instance.new("BillboardGui")
-    billboard.Adornee = player.Character and player.Character:FindFirstChild("Head")
-    billboard.Size = UDim2.new(1, 0, 1, 0)
-    billboard.StudsOffset = Vector3.new(0, 2, 0)
-
-    local label = Instance.new("TextLabel")
-    label.Size = UDim2.new(1, 0, 1, 0)
-    label.Text = text
-    label.TextColor3 = textColor
-    label.BackgroundTransparency = 1
-
-    label.Parent = billboard
-    billboard.Parent = player.Character.Head
-end
-
 -- Module 4: Information Text
 module[1] = {
     Type = "Text",
-    Args = {"@brx12k: Use YARHM Elite+"}
+    Args = {"Universal"}
 }
 
 -- Module 1: X-ray Toggle with Password Protection
@@ -123,6 +106,7 @@ module[3] = {
                 module[8].Enabled = true  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
                 module[9].Enabled = true  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
                 module[10].Enabled = true  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
+                module[12].Enabled = true  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
             end
         end
         
@@ -137,6 +121,7 @@ module[3] = {
                 module[8].Enabled = false  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
                 module[9].Enabled = false  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
                 module[10].Enabled = false  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
+                module[12].Enabled = false  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
         end
     end}
 }
@@ -180,7 +165,7 @@ module[5] = {
 -- Module 5: Aim Lock Player with Knife
 module[6] = {
     Type = "Button",
-    Args = {"Aim Lock Player with Knife [BETA]", function(Self)
+    Args = {"Aim Lock Player with Knife [✓]", function(Self)
         if passwordEntered then
             -- Define the target player with a knife (modify as per your game's logic)
             local function getTargetPlayer()
@@ -339,26 +324,27 @@ module[9] = {
             -- Get the local player and their character
             local player = Players.LocalPlayer
             local character = player.Character
+            local Camera = workspace.CurrentCamera
+            
             if character and character.PrimaryPart then
-                -- Store the original position and camera position before teleporting
+                -- Store the original position before teleporting
                 local originalCFrame = character.PrimaryPart.CFrame
-                local originalCameraCFrame = Camera.CFrame
-                
-                -- Lock the camera position
-                Camera.CameraType = Enum.CameraType.Scriptable
-                Camera.CFrame = originalCameraCFrame -- Keep the camera locked at its current position
                 
                 -- Teleport to lobby and anchor the character
                 character:SetPrimaryPartCFrame(targetCFrame)
                 character.PrimaryPart.Anchored = true
                 print("Teleported to lobby and anchored.")
+
+                -- Freeze the camera
+                Camera.CameraType = Enum.CameraType.Scriptable
+                Camera.CFrame = Camera.CFrame -- Keeps camera in place
                 
                 -- Automatically return to original position after 5 seconds
                 delay(5, function()
                     if character and character.PrimaryPart then
                         character.PrimaryPart.Anchored = false -- Unanchor
                         character:SetPrimaryPartCFrame(originalCFrame) -- Teleport back to original position
-                        Camera.CameraType = Enum.CameraType.Custom -- Unlock the camera
+                        Camera.CameraType = Enum.CameraType.Custom -- Unfreeze the camera
                         print("Returned to original position.")
                     end
                 end)
@@ -373,7 +359,7 @@ module[9] = {
 
 module[10] = {
     Type = "Button",
-    Args = {"Fake Death", function(Self)
+    Args = {"Fake Death [✓]", function(Self)
         if passwordEntered then
             local localPlayer = Players.LocalPlayer
             local character = localPlayer.Character
@@ -391,6 +377,47 @@ module[10] = {
 -- Module 4: Information Text
 module[11] = {
     Type = "Text",
+    Args = {"<font color='#FF0000'>TSB Features</font>"}
+}
+
+module[12] = {
+    Type = "Button",
+    Args = {"Garou Combo [Beta]", function(Self)
+        if passwordEntered then
+            -- Function to simulate key presses
+            local function simulateKeyPress(key)
+                -- Simulate the key press
+                UserInputService.InputBegan:Fire({UserInputType = Enum.UserInputType.Keyboard, KeyCode = key})
+            end
+
+            local function spamKeys()
+                local startTime = tick()
+                while tick() - startTime < 10 do
+                    -- Spam key "2" five times
+                    for i = 1, 5 do
+                        simulateKeyPress(Enum.KeyCode.Two)
+                        wait(0.05) -- Minimal delay to simulate fast clicking
+                    end
+
+                    -- Spam key "1" five times
+                    for i = 1, 5 do
+                        simulateKeyPress(Enum.KeyCode.One)
+                        wait(0.05) -- Minimal delay to simulate fast clicking
+                    end
+                end
+            end
+
+            -- Start spamming keys
+            spamKeys()
+        else
+            print("Please enter a valid password.")
+        end
+    end}
+}
+
+-- Module 4: Information Text
+module[13] = {
+    Type = "Text",
     Args = {"Made By Brandon Jay | Tiktok: @brx12k"}
 }
 
@@ -403,6 +430,7 @@ module[7].Enabled = false
 module[8].Enabled = false
 module[9].Enabled = false
 module[10].Enabled = false
+module[12].Enabled = false
 
 -- Add modules to global modules list
 _G.Modules = _G.Modules or {}
