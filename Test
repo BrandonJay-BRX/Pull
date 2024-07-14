@@ -27,9 +27,6 @@ local passwords = {
 
 local passwordEntered = false -- Track if any valid password has been entered
 
--- Store players with valid passwords
-local validPlayers = {}  -- This should be placed here
-
 -- Store original position before teleportation
 local originalPosition = nil
 
@@ -67,8 +64,93 @@ local function toggleXray(state)
     end
 end
 
--- Module 1: X-ray Toggle with Password Protection
+local tagsFolder = Instance.new("Folder", script.Parent)
+	tagsFolder.Name = "TagsFolder"
+	
+	local Players = game:GetService("Players")
+	
+	-- Customize these with your own usernames and developers
+	local usernameColors = {
+		["givepetroblox"] = Color3.fromHex("#ffff00"),
+	}
+	
+	local specialUsernameColors = {
+		["Nufty93jw"] = Color3.fromHex("#8fcf00"),
+	}
+	
+	local mainText = "Chronicles VIP"
+	local mainFont = Enum.Font.GothamBold
+	local specialText = "Chronicles"
+	local specialFont = Enum.Font.GothamBold
+	
+	local function createTextLabel(player, text, color)
+		local head = player.Character and player.Character:FindFirstChild("Head")
+		if head then
+			-- Remove any existing tags to avoid duplicates
+			local existingTag = head:FindFirstChild("DeveloperTag") or head:FindFirstChild("SpecialTag")
+			if existingTag then
+				existingTag:Destroy()
+			end
+	
+			local mainTextLabel = Instance.new("BillboardGui")
+			mainTextLabel.Parent = tagsFolder
+			mainTextLabel.Name = text == mainText and "DeveloperTag" or "SpecialTag"
+			mainTextLabel.Size = UDim2.new(5, 0, 1, 0)
+			mainTextLabel.StudsOffset = Vector3.new(0, 2, 0)
+			mainTextLabel.Adornee = head
+			mainTextLabel.AlwaysOnTop = false
+			mainTextLabel.MaxDistance = math.huge
+			mainTextLabel.LightInfluence = 0
+			if player.Name == "givepetroblox" then
+				mainTextLabel.Brightness = 5
+			end
+	
+			local mainTextElement = Instance.new("TextLabel")
+			mainTextElement.Size = UDim2.new(1, 0, 1, 0)
+			mainTextElement.Text = text
+			mainTextElement.TextColor3 = color
+			mainTextElement.BackgroundTransparency = 1
+			mainTextElement.Font = mainFont
+			mainTextElement.TextScaled = true
+			mainTextElement.Parent = mainTextLabel
+		end
+	end
+	
+	local function checkForPlayer(player)
+		if usernameColors[player.Name] then
+			createTextLabel(player, mainText, usernameColors[player.Name])
+		elseif specialUsernameColors[player.Name] then
+			createTextLabel(player, specialText, specialUsernameColors[player.Name])
+		end
+	end
+	
+	local function onCharacterAdded(player)
+		player.CharacterAdded:Connect(function(character)
+			-- Wait for 10 seconds before reapplying the tag
+			task.wait(10)
+			checkForPlayer(player)
+		end)
+	end
+	
+	local function handlePlayer(player)
+		checkForPlayer(player)
+		onCharacterAdded(player)
+	end
+	
+	for _, player in ipairs(Players:GetPlayers()) do
+		handlePlayer(player)
+	end
+	
+	Players.PlayerAdded:Connect(handlePlayer)
+
+-- Module 4: Information Text
 module[1] = {
+    Type = "Text",
+    Args = {"@brx12k: Use YARHM Elite+"}
+}
+
+-- Module 1: X-ray Toggle with Password Protection
+module[2] = {
     Type = "Toggle",
     Args = {"X-ray [Last Only 5s]", function(Self)
         if passwordEntered then
@@ -83,7 +165,7 @@ module[1] = {
 }
 
 -- Module 2: Password Input
-module[2] = {
+module[3] = {
     Type = "Input",
     Args = {"Enter Password", "Submit", function(Self, text)
         local validPassword = false
@@ -94,30 +176,32 @@ module[2] = {
                 validPassword = true
                 passwordEntered = true
                 print("Password accepted. Access granted.")
-                module[1].Enabled = true  -- Enable X-ray toggle after correct password
-                module[3].Enabled = true  -- Enable Hold Everyone Hostages after correct password
-                module[5].Enabled = true  -- Enable Aim Lock Player with Knife after correct password
-                module[6].Enabled = true  -- Enable Avoid Murderer By Teleporting to Lobby after correct password
-                module[7].Enabled = true  -- XD
+                module[2].Enabled = true  -- Disable X-ray toggle if password is incorrect
+                module[4].Enabled = true  -- Disable Hold Everyone Hostages if password is incorrect
+                module[5].Enabled = true  -- Disable Aim Lock Player with Knife if password is incorrect
+                module[6].Enabled = true  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
+                module[7].Enabled = true  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
                 module[8].Enabled = true  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
+                module[9].Enabled = true  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
             end
         end
         
         if not validPassword then
             print("Incorrect password. Access denied.")
             passwordEntered = false
-            module[1].Enabled = false  -- Disable X-ray toggle if password is incorrect
-            module[3].Enabled = false  -- Disable Hold Everyone Hostages if password is incorrect
-            module[5].Enabled = false  -- Disable Aim Lock Player with Knife if password is incorrect
-            module[6].Enabled = false  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
-            module[7].Enabled = false  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
-            module[8].Enabled = false  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
+                module[2].Enabled = false  -- Disable X-ray toggle if password is incorrect
+                module[4].Enabled = false  -- Disable Hold Everyone Hostages if password is incorrect
+                module[5].Enabled = false  -- Disable Aim Lock Player with Knife if password is incorrect
+                module[6].Enabled = false  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
+                module[7].Enabled = false  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
+                module[8].Enabled = false  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
+                module[9].Enabled = false  -- Disable Avoid Murderer By Teleporting to Lobby if password is incorrect
         end
     end}
 }
 
 -- Module 3: Hold Everyone Hostages Button
-module[3] = {
+module[4] = {
     Type = "Button",
     Args = {"Hold Everyone Hostages", function(Self)
         if passwordEntered then
@@ -148,13 +232,13 @@ module[3] = {
 }
 
 -- Module 4: Information Text
-module[4] = {
+module[5] = {
     Type = "Text",
     Args = {"<font color='#FF0000'>MM2 Features</font>"}
 }
 
 -- Module 5: Aim Lock Player with Knife
-module[5] = {
+module[6] = {
     Type = "Button",
     Args = {"Aim Lock Player with Knife [BETA]", function(Self)
         if passwordEntered then
@@ -230,7 +314,7 @@ module[5] = {
 }
 
 -- Module 6: Avoid Murderer By Teleporting to Lobby
-module[6] = {
+module[7] = {
     Type = "Button",
     Args = {"Avoid Murderer By Teleporting to Lobby", function(Self)
         if passwordEntered then
@@ -264,54 +348,39 @@ module[6] = {
     end}
 }
 
--- Module 6: Hold the Player with a Gun Hostage
-module[7] = {
+module[8] = {
     Type = "Button",
-    Args = {"Hold Sheriff [TEST]", function(Self)
+    Args = {"Hold Sheriff Hostage", function(Self)
         if passwordEntered then
-            if findMurderer() ~= localplayer then 
-                fu.notification("You're not the murderer. This'll only be useful if you're the murderer.") 
-                return 
-            end
-
-            local originalPosition = nil  -- Variable to store the original position of the player with the gun
-
-            for _, player in ipairs(game.Players:GetPlayers()) do
-                if player.Character and player.Character:FindFirstChild("HumanoidRootPart") and player ~= localplayer then
-                    local backpack = player.Backpack
-                    local character = player.Character
-                    local tool = backpack:FindFirstChild("Tool") or character:FindFirstChild("Tool")
-                    
-                    if tool then
-                        -- Save the original position
-                        originalPosition = player.Character.HumanoidRootPart.CFrame
-
-                        -- Anchor and move the player to the hostage point
-                        player.Character.HumanoidRootPart.Anchored = true
-                        player.Character.HumanoidRootPart.CFrame = localplayer.Character.HumanoidRootPart.CFrame + localplayer.Character.HumanoidRootPart.CFrame.LookVector * 5
-
-                        break  -- Exit the loop after finding the player with the gun
-                    end
-                end
-            end
-
-            fu.notification("Player with the gun has been taken hostage.")
-
-            -- After a short delay, teleport the player back to the original position
-            if originalPosition then
-                wait(0.5)
-                for _, player in ipairs(game.Players:GetPlayers()) do
-                    if player.Character and player.Character:FindFirstChild("HumanoidRootPart") and player ~= localplayer then
-                        local backpack = player.Backpack
-                        local character = player.Character
-                        local tool = backpack:FindFirstChild("Tool") or character:FindFirstChild("Tool")
-
-                        if tool then
-                            player.Character.HumanoidRootPart.CFrame = originalPosition
-                            player.Character.HumanoidRootPart.Anchored = false
+            local localplayer = Players.LocalPlayer
+            local localTeam = localplayer.Team
+            
+            for _, player in ipairs(Players:GetPlayers()) do
+                if player ~= localplayer then
+                    if localTeam == nil or player.Team ~= localTeam then
+                        local backpack = player:FindFirstChild("Backpack")
+                        local gun = backpack and backpack:FindFirstChild("Gun")
+                        
+                        if gun then
+                            local humanoidRootPart = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+                            if humanoidRootPart then
+                                humanoidRootPart.Anchored = true
+                                humanoidRootPart.CFrame = localplayer.Character.HumanoidRootPart.CFrame + localplayer.Character.HumanoidRootPart.CFrame.LookVector * 5
+                                
+                                -- Release after 0.5 seconds
+                                delay(0.5, function()
+                                    humanoidRootPart.Anchored = false
+                                end)
+                            end
                         end
                     end
                 end
+            end
+            
+            if localTeam == nil then
+                print("Held the sheriff hostage for 0.5 seconds.")
+            else
+                print("Held the sheriff not on your team hostage for 0.5 seconds.")
             end
         else
             print("Please enter a valid password.")
@@ -319,7 +388,7 @@ module[7] = {
     end}
 }
 
-module[8] = {
+module[9] = {
     Type = "Button",
     Args = {"Avoid Murderer [Button]", function(Self)
         if passwordEntered then
@@ -330,16 +399,15 @@ module[8] = {
             local player = Players.LocalPlayer
             local character = player.Character
             if character and character.PrimaryPart then
-                -- Store original position before teleporting
-                local originalPosition = character.PrimaryPart.CFrame
+                -- Store original camera position before teleporting
+                local originalCameraCFrame = Camera.CFrame
                 
                 -- Lock the camera position
                 Camera.CameraType = Enum.CameraType.Scriptable
-                Camera.CFrame = Camera.CFrame -- Keep the camera locked at its current position
+                Camera.CFrame = originalCameraCFrame -- Keep the camera locked at its current position
                 
                 -- Teleport to lobby and anchor the character
                 character:SetPrimaryPartCFrame(targetCFrame)
-                character:PivotTo(targetCFrame) -- Ensure it's teleported
                 character.PrimaryPart.Anchored = true
                 print("Teleported to lobby and anchored.")
                 
@@ -347,7 +415,7 @@ module[8] = {
                 delay(5, function()
                     if character and character.PrimaryPart then
                         character.PrimaryPart.Anchored = false -- Unanchor
-                        character:SetPrimaryPartCFrame(originalPosition) -- Return to original position
+                        -- No need to move the character back since it's client-side only
                         Camera.CameraType = Enum.CameraType.Custom -- Unlock the camera
                         print("Returned to original position.")
                     end
@@ -358,40 +426,6 @@ module[8] = {
             
         else
             print("Please enter a valid password.")
-        end
-    end}
-}
-
-module[9] = {
-    Type = "Button",
-    Args = {"Click Me [Button]", function(Self)
-        local player = Players.LocalPlayer
-
-        -- Create a BillboardGui above the player's head
-        local billboard = Instance.new("BillboardGui")
-        billboard.Adornee = player.Character:WaitForChild("Head")
-        billboard.Size = UDim2.new(1, 0, 1, 0)
-        billboard.StudsOffset = Vector3.new(0, 2, 0)
-        billboard.AlwaysOnTop = true
-
-        local textLabel = Instance.new("TextLabel", billboard)
-        textLabel.Size = UDim2.new(1, 0, 1, 0)
-
-        -- Set tag colors based on player name
-        if player.Name == "givepetroblox" then
-            textLabel.Text = "Chronicles VIP"
-            textLabel.TextColor3 = Color3.new(1, 1, 0) -- Yellow
-        else
-            textLabel.Text = "Chronicles"
-            textLabel.TextColor3 = Color3.new(0, 1, 0) -- Green
-        end
-
-        textLabel.BackgroundTransparency = 1
-        billboard.Parent = player.Character.Head
-
-        -- Remove the BillboardGui on reset
-        player.Character.Humanoid.Died:Connect(function()
-            billboard:Destroy()
         end
     end}
 }
@@ -409,6 +443,7 @@ module[5].Enabled = false
 module[6].Enabled = false
 module[7].Enabled = false
 module[8].Enabled = false
+module[9].Enabled = false
 
 -- Add modules to global modules list
 _G.Modules = _G.Modules or {}
